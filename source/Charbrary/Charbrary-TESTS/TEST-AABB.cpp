@@ -92,11 +92,11 @@ TEST(AABB, perimeter) {
 	EXPECT_EQ(aabb.perimeter(), expected);
 }
 
-TEST(AABB, surface) {
+TEST(AABB, area) {
 	CB::AABB aabb(0, 0, 2, 3);
 	float expected = 6;
 
-	EXPECT_EQ(aabb.surface(), expected);
+	EXPECT_EQ(aabb.area(), expected);
 }
 
 TEST(AABB, diagonalLength) {
@@ -169,6 +169,14 @@ TEST(AABB, strictlyContains_true_itself) {
 	CB::AABB aabb(6, 4, 10, 30);
 	
 	EXPECT_TRUE(aabb.strictlyContains(aabb));
+}
+
+TEST(AABB, assign_operator) {
+	CB::AABB aabb(6, 4, 10, 30);
+	CB::AABB expected(19, 25, 45, 898);
+	aabb = expected;
+
+	EXPECT_EQ(aabb, expected);
 }
 
 TEST(AABB, equality_operator) {
