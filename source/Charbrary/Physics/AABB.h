@@ -59,9 +59,9 @@ namespace CB {
 		 * \brief Constructs a new AABB from 2 vectors.
 		 * 
 		 * \param position Position of the AABB.
-		 * \param widthAndHeight Size of the AABB.
+		 * \param size_ Size of the AABB.
 		 */
-		AABB(Vector position, Vector widthAndHeight);
+		AABB(const Vector& position, const Vector& size_);
 
 		/**
 		 * \brief Constructs a new AABB from 4 values.
@@ -115,10 +115,10 @@ namespace CB {
 		float perimeter() const;
 
 		/**
-		 * \brief Computes the surface of the AABB.
-		 * \return The surface of the AABB.
+		 * \brief Computes the area of the AABB.
+		 * \return The area of the AABB.
 		 */
-		float surface() const;
+		float area() const;
 
 		/**
 		 * \brief Computes the length of any of the AABB's diagonals.
