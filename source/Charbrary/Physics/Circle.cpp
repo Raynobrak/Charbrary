@@ -19,9 +19,7 @@ namespace CB {
 
 	Circle::Circle() : pos(), radius(0) {}
 
-	Circle::Circle(Vector position, float radius_) : pos(position), radius(radius_) {}
-
-	Circle::Circle(float x, float y, float radius_) : pos(x,y), radius(radius_) {}
+	Circle::Circle(const Vector& position, float radius_) : pos(position), radius(radius_) {}
 
 	float Circle::diameter() const {
 		return 2 * radius;

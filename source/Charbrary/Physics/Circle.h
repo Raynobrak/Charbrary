@@ -19,40 +19,106 @@ limitations under the License. */
 
 namespace CB {
 
+	/**
+	 * \brief Represents a circle.
+	 * 
+	 * This class contains methods that perform common operations that can be done with
+	 * circles such as computing the diameter, the area, the circumference and also
+	 * collision detection.
+	 * Circles are defined by the position of their center (a vector) and their radius (a real number).
+	 */
 	class Circle {
 
 	public:
 
-		Vector pos;
+		Vector pos; /**< The circle's center position. */
 
-		float radius;
+		float radius; /**< The circle's radius. */
 
 	public:
 
+		/**
+		 * \brief Constructs a new Circle with default values.
+		 * 
+		 * The new circle will be positioned at 0,0 and have a radius of 0.
+		 */
 		Circle();
 
-		Circle(Vector position, float radius_);
+		/**
+		 * \brief Constructs a new Circle from a vector and a radius.
+		 * \param position Position of the center of the circle.
+		 * \param radius_ Radius of the circle.
+		 */
+		Circle(const Vector& position, float radius_);
 
-		Circle(float x, float y, float radius_);
-
+		/**
+		 * \brief Computes the diameter of the circle.
+		 * \return The diameter (radius * 2).
+		 */
 		float diameter() const;
 
+		/**
+		 * \brief Computes the circumference of the circle.
+		 * \note The value for PI that will be used is the one contained in Constants.h
+		 * \return The circumference.
+		 */
 		float circumference() const;
 
+		/**
+		 * \brief Computes the area of the circle. 
+		 * \note The value for PI that will be used is the one contained in Constants.h
+		 * \return The area of the circle.
+		 */
 		float area() const;
 
+		/**
+		 * \brief Computes the smallest AABB that contains the current circle.
+		 * 
+		 * The computed AABB will be as small as possible and the Circle will be
+		 * centered inside it.
+		 * 
+		 * \return A new AABB containing the current circle.
+		 */
 		AABB enclosingAABB() const;
 
+		/**
+		 * \brief Checks if the given point is contained inside the current circle.
+		 * \param point The position of the point.
+		 * \return True if the point is inside the circle, false otherwise.
+		 */
 		bool contains(const Vector& point) const;
 
+		/**
+		 * \brief Checks if the given circle intersects the current circle.
+		 * \param other Another circle.
+		 * \return True if the circles are overlapping, false otherwise.
+		 */
 		bool intersects(const Circle& other) const;
 
+		/**
+		 * \brief Checks if the given circle is entirely contained inside the current
+		 * circle.
+		 * \param other The potentially contained circle.
+		 * \return True if the given circle is contained in the current circle.
+		 */
 		bool strictlyContains(const Circle& other) const;
 
+		/**
+		 * \brief Overload of the assignment operator.
+		 * \param toCopy Circle whose values will be copied into the current circle. 
+		 */
 		void operator=(const Circle& toCopy);
 	};
 
+	/**
+	 * \brief Overload of the equality operator between 2 circles.
+	 * \return True if left is equal to right.
+	 */
 	bool operator==(const Circle& left, const Circle& right);
 
+	/**
+	 * \brief Overload of the inequality operator between 2 circles.
+	 * \return True if left and right are different.
+	 */
 	bool operator!=(const Circle& left, const Circle& right);
 }
