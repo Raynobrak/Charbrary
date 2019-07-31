@@ -46,8 +46,8 @@ namespace CB {
 	}
 
 	bool Circle::strictlyContains(const Circle& other) const {
-		if (other.radius < radius) {
-			return (pos - other.pos).magnitudeSquared() < (radius - other.radius) * (radius - other.radius);
+		if (other.radius <= radius) {
+			return (pos - other.pos).magnitudeSquared() <= (radius - other.radius) * (radius - other.radius);
 		}
 		return false;
 	}

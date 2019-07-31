@@ -8,27 +8,27 @@
 TEST(Vector, ctor) {
 	CB::Vector v(54.f, -23.f);
 
-	EXPECT_EQ(v.x, 54.f);
-	EXPECT_EQ(v.y, -23.f);
+	EXPECT_FLOAT_EQ(v.x, 54.f);
+	EXPECT_FLOAT_EQ(v.y, -23.f);
 }
 
 TEST(Vector, ctor_default) {
 	CB::Vector v;
 
-	EXPECT_EQ(v.x, 0.f);
-	EXPECT_EQ(v.y, 0.f);
+	EXPECT_FLOAT_EQ(v.x, 0.f);
+	EXPECT_FLOAT_EQ(v.y, 0.f);
 }
 
 TEST(Vector, magnitudeSquared) {
 	CB::Vector v(3.f, 4.f);
 
-	EXPECT_EQ(v.magnitudeSquared(), 25.f);
+	EXPECT_FLOAT_EQ(v.magnitudeSquared(), 25.f);
 }
 
 TEST(Vector, magnitude) {
 	CB::Vector v(-4.f, 3.f);
 
-	EXPECT_EQ(v.magnitude(), 5.f);
+	EXPECT_FLOAT_EQ(v.magnitude(), 5.f);
 }
 
 TEST(Vector, normalize) {
@@ -91,7 +91,7 @@ TEST(Vector, divide_assign_operator_div0_exception) {
 	CB::Vector vector(3.f, -5.f);
 	float scalar = 0.f;
 
-	EXPECT_ANY_THROW(vector /= scalar);
+	EXPECT_THROW(vector /= scalar, std::invalid_argument);
 }
 
 TEST(Vector, assign_operator) {
@@ -110,7 +110,7 @@ TEST(Vector, dotProduct) {
 
 	float expected = -5.f;
 
-	EXPECT_EQ(CB::Vector::dotProduct(first, second), expected);
+	EXPECT_FLOAT_EQ(CB::Vector::dotProduct(first, second), expected);
 }
 
 TEST(Vector, add_operator) {
@@ -160,7 +160,7 @@ TEST(Vector, divide_operator_div0_exception) {
 	CB::Vector vector(3.f, -5.f);
 	float scalar = 0.f;
 
-	EXPECT_ANY_THROW(vector / scalar);
+	EXPECT_THROW(vector / scalar, std::invalid_argument);
 }
 
 TEST(Vector, equal_operator) {
