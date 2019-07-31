@@ -219,7 +219,7 @@ namespace CB {
 
 	/**
 	 * \brief Overload of the inequality operator.
-	 * \return true if the 2 vectors are NOT equal, false otherwise.
+	 * \return true if the 2 vectors are different, false otherwise.
 	 */
 	bool operator!=(const Vector& left, const Vector& right);
 }
