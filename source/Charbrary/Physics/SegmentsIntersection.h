@@ -18,26 +18,23 @@ limitations under the License. */
 
 namespace CB {
 
-	class Line {
+	enum class IntersectionType {
+		None,
+		Crossing,
+		Overlapping
+	};
 
-	public:
+	struct SegmentsIntersection {
 
-		Vector start;
-		Vector end;
-		bool isRight;
+		SegmentsIntersection(IntersectionType type_);
+		SegmentsIntersection(IntersectionType type_, const Vector& point_);
+		SegmentsIntersection(IntersectionType type_, const std::pair<Vector, Vector>& segment);
 
-	public:
+		IntersectionType type;
 
-		Line(const Vector& start, const Vector& end, bool isRight);
-
-		Line(const Vector& start, const Vector& size);
-
-		float length() const;
-
-		float dir() const;
-
-		float distance(const Vector& point) const;
-
-		bool intersects(const Line& other) const;
+		union {
+			Vector point;
+			std::pair<Vector, Vector> resultingSegment;
+		};
 	};
 }
