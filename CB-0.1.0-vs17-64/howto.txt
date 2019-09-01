@@ -1,0 +1,22 @@
+How to use the Charbrary in a Visual Studio 2017 project ?
+----------------------------------------------------------
+
+Open project properties and do the following :
+
+For all configurations :
+
+	1. In C/C++ -> General, add <path to folder <this_folder>/include
+
+	2. In Linker -> General, add <this_folder>/lib
+
+For Release configuration :
+	- Add 'charbrary.lib' in "Additional dependencies"
+
+For Debug configuration :
+	- Add 'charbrary-debug.lib' in "Additional dependencies"
+
+
+To include charbrary headers :
+------------------------------
+
+#include <CB/{folder}/{file}>
