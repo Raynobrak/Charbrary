@@ -76,6 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -117,12 +118,16 @@
   <ItemGroup>
     <ClInclude Include="Physics\AABB.h" />
     <ClInclude Include="Physics\Circle.h" />
+    <ClInclude Include="Physics\LineSegment.h" />
+    <ClInclude Include="Physics\SegmentsIntersection.h" />
     <ClInclude Include="Physics\Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Physics\AABB.cpp" />
     <ClCompile Include="Physics\Circle.cpp" />
+    <ClCompile Include="Physics\LineSegment.cpp" />
+    <ClCompile Include="Physics\SegmentsIntersection.cpp" />
     <ClCompile Include="Physics\Vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
