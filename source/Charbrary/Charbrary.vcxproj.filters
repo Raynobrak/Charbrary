@@ -4,11 +4,15 @@
     <ClInclude Include="Physics\Vector.h" />
     <ClInclude Include="Physics\AABB.h" />
     <ClInclude Include="Physics\Circle.h" />
+    <ClInclude Include="Physics\LineSegment.h" />
+    <ClInclude Include="Physics\SegmentsIntersection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Physics\Vector.cpp" />
     <ClCompile Include="Physics\AABB.cpp" />
     <ClCompile Include="Physics\Circle.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Physics\LineSegment.cpp" />
+    <ClCompile Include="Physics\SegmentsIntersection.cpp" />
   </ItemGroup>
 </Project>
