@@ -134,9 +134,10 @@ namespace CB {
 		/**
 		 * \brief Computes the y-intercept value of a right (infinite line).
 		 * 
-		 * The Y-intercept is the Y component of the point at which the given right (defined by a point located on it and it's slope) will intercept the Y-axis.
+		 * The Y-intercept is the Y component of the point at which the given right
+		 * (defined by a point located on it and it's slope) will intercept the Y-axis.
 		 * 
-		 * \param anyPoint Any point located on the right.
+		 * \param anyPoint A point that is located on the right.
 		 * \param slope The slope of the right.
 		 * \return The y-intercept value.
 		 */
