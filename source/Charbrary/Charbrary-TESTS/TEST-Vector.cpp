@@ -74,6 +74,37 @@ TEST(Vector, abs) {
 	EXPECT_EQ(v.abs(), expected);
 }
 
+TEST(Vector, rotate_0degrees) {
+	CB::Vector v(12.f, 31.f);
+	CB::Vector after = v.rotate(0.f);
+
+	EXPECT_EQ(v, after);
+}
+
+TEST(Vector, rotate_45degrees) {
+	CB::Vector v(0.1f, 0.1f);
+	CB::Vector after = v.rotate(45.f);
+
+	EXPECT_NEAR(after.x, 0.f, FLOAT_EPSILON);
+	EXPECT_NEAR(after.y, sqrtf(2.f) / 10.f, FLOAT_EPSILON);
+}
+
+TEST(Vector, rotate_minus180degrees) {
+	CB::Vector v(0.3f, 0.2f);
+	CB::Vector after = v.rotate(-180.f);
+
+	EXPECT_NEAR(after.x, -v.x, FLOAT_EPSILON);
+	EXPECT_NEAR(after.y, -v.y, FLOAT_EPSILON);
+}
+
+TEST(Vector, rotate_360degrees) {
+	CB::Vector v(0.4f, 0.1f);
+	CB::Vector after = v.rotate(360.f);
+
+	EXPECT_NEAR(v.x, after.x, FLOAT_EPSILON);
+	EXPECT_NEAR(v.y, after.y, FLOAT_EPSILON);
+}
+
 TEST(Vector, add_assign_operator) {
 	CB::Vector first(-1.f, 20.f);
 	CB::Vector second(3.f, -30);
