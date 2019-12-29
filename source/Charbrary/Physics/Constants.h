@@ -13,6 +13,5 @@ See the License for the specific language governing permissions and
 limitations under the License. */
 
 namespace CB {
-
 	const float FLT_PI = 3.14159265359f;
 }

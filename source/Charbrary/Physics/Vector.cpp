@@ -20,9 +20,11 @@ limitations under the License. */
 
 namespace CB {
 
+	static const float DEGREES_TO_RADIANS = FLT_PI / 180.f;
+
 	Vector Vector::fromPolarCoordinates(float degrees, float length) {
-		static const float DEGREES_TO_RADIANS = FLT_PI / 180.f;
-		return length * Vector(std::cosf(degrees * DEGREES_TO_RADIANS), std::sinf(degrees * DEGREES_TO_RADIANS));
+		degrees *= DEGREES_TO_RADIANS;
+		return length * Vector(std::cosf(degrees), std::sinf(degrees));
 	}
 
 	Vector::Vector(float X, float Y) : x(X), y(Y) {}
@@ -45,6 +47,13 @@ namespace CB {
 
 	Vector Vector::abs() const {
 		return Vector(std::abs(x), std::abs(y));
+	}
+
+	Vector Vector::rotate(float angle) const {
+		angle *= DEGREES_TO_RADIANS;
+
+		// Formula taken from https://matthew-brett.github.io/teaching/rotation_2d.html
+		return Vector(std::cosf(angle) * x - std::sinf(angle) * y, std::sinf(angle) * x + std::cosf(angle) * y);
 	}
 
 	Vector & Vector::operator+=(const Vector & add) {

@@ -99,6 +99,13 @@ namespace CB {
 		Vector abs() const;
 
 		/**
+		 * \brief Rotates the current vector.
+		 * \note The current vector will not be modified.
+		 * \return A copy of the current vector rotated by the given angle.
+		 */
+		Vector rotate(float angle) const;
+
+		/**
 		 * \brief Overload of the addition-assignment operator.
 		 * 
 		 * The vector given as parameter will be added onto the current vector. Their
