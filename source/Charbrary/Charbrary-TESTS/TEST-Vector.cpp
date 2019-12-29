@@ -5,6 +5,8 @@
 #include "../Physics/Vector.h"
 #include "../Physics/Vector.cpp"
 
+#define FLOAT_EPSILON std::numeric_limits<float>::epsilon()
+
 TEST(Vector, ctor) {
 	CB::Vector v(54.f, -23.f);
 
@@ -17,6 +19,27 @@ TEST(Vector, ctor_default) {
 
 	EXPECT_FLOAT_EQ(v.x, 0.f);
 	EXPECT_FLOAT_EQ(v.y, 0.f);
+}
+
+TEST(Vector, polar_coordinates_0degrees) {
+	CB::Vector v = CB::Vector::fromPolarCoordinates(0.f, 10.f);
+
+	EXPECT_FLOAT_EQ(v.x, 10.f);
+	EXPECT_FLOAT_EQ(v.y, 0.f);
+}
+
+TEST(Vector, polar_coordinates_90degrees) {
+	CB::Vector v = CB::Vector::fromPolarCoordinates(90.f, 2.f);
+
+	EXPECT_NEAR(v.x, 0.f, FLOAT_EPSILON);
+	EXPECT_NEAR(v.y, 2.f, FLOAT_EPSILON);
+}
+
+TEST(Vector, polar_coordinates_negative_angle) {
+	CB::Vector v = CB::Vector::fromPolarCoordinates(-120.f, 1.f);
+
+	EXPECT_NEAR(v.x, -0.5f, FLOAT_EPSILON);
+	EXPECT_NEAR(v.y, -sqrtf(3.f)/2.f, FLOAT_EPSILON);
 }
 
 TEST(Vector, magnitudeSquared) {

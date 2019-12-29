@@ -8,9 +8,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Charbrary-TESTS", "Charbrary\Charbrary-TESTS\Charbrary-TESTS.vcxproj", "{948CB5EF-39B4-4D7D-9B69-0C5BE70A2C79}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0DBD2549-1C66-459A-BA2A-6502EC733494}"
-	ProjectSection(SolutionItems) = preProject
-		Charbrary\Physics\Constants.h = Charbrary\Physics\Constants.h
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

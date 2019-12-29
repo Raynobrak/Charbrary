@@ -13,11 +13,17 @@ See the License for the specific language governing permissions and
 limitations under the License. */
 
 #include "Vector.h"
-#pragma once
+#include "Constants.h"
+
 #include <cmath>
 #include <stdexcept>
 
 namespace CB {
+
+	Vector Vector::fromPolarCoordinates(float degrees, float length) {
+		static const float DEGREES_TO_RADIANS = FLT_PI / 180.f;
+		return length * Vector(std::cosf(degrees * DEGREES_TO_RADIANS), std::sinf(degrees * DEGREES_TO_RADIANS));
+	}
 
 	Vector::Vector(float X, float Y) : x(X), y(Y) {}
 

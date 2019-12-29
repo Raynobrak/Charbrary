@@ -6,6 +6,7 @@
     <ClInclude Include="Physics\Circle.h" />
     <ClInclude Include="Physics\LineSegment.h" />
     <ClInclude Include="Physics\SegmentsIntersection.h" />
+    <ClInclude Include="Physics\Constants.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Physics\Vector.cpp" />

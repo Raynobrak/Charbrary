@@ -42,6 +42,15 @@ namespace CB {
 		float x; /**< Horizontal component of the vector. */
 		float y; /**< Vertical component of the vector. */
 
+		/*
+		 * \brief Constructs a new Vector from polar coordinates.
+		 * \param degrees Angle (in degrees) of the vector.
+		 * \param length Length of the vector.
+		 *
+		 * \return The polar coordinates converted to a cartesian vector.
+		 */
+		static Vector fromPolarCoordinates(float degrees, float length);
+
 	public:
 		/**
 		 * \brief Constructs a new Vector from it's X and Y values.
