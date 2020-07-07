@@ -7,39 +7,39 @@
 namespace CB {
 	constexpr float DEGREES_TO_RADIANS = FLT_PI / 180.f;
 
-	vec_t fromPolarCoordinates(float degrees, float length) {
-		degrees *= DEGREES_TO_RADIANS;
-		return length * vec_t(std::cosf(degrees), std::sinf(degrees));
-	}
-
-	float magnitudeSquared(vec_t v)  {
+	float vec_magnitude_squared(vec_t v)  {
 		return v.x * v.x + v.y * v.y;
 	}
 
-	float magnitude(vec_t v)  {
-		return std::sqrtf(magnitudeSquared(v));
+	float vec_magnitude(vec_t v)  {
+		return std::sqrtf(vec_magnitude_squared(v));
 	}
 
-	vec_t normalize(vec_t v)  {
+	float vec_dot_product(vec_t a, vec_t b) {
+		return a.x * b.x + a.y * b.y;
+	}	
+
+	vec_t vec_abs(vec_t v)  {
+		return vec_t(std::abs(v.x), std::abs(v.y));
+	}
+
+	vec_t vec_normalize(vec_t v) {
 		if (v.x == 0 && v.y == 0) {
 			return vec_t();
 		}
 
-		return v / magnitude(v);
+		return v / vec_magnitude(v);
 	}
 
-	vec_t abs(vec_t v)  {
-		return vec_t(std::abs(v.x), std::abs(v.y));
-	}
-
-	vec_t rotate(vec_t v, float angle)  {
+	vec_t vec_rotate(vec_t v, float angle)  {
 		angle *= DEGREES_TO_RADIANS;
 
 		// Formula taken from https://matthew-brett.github.io/teaching/rotation_2d.html
 		return vec_t(std::cosf(angle) * v.x - std::sinf(angle) * v.y, std::sinf(angle) * v.x + std::cosf(angle) * v.y);
 	}
 
-	float dotProduct(vec_t a, vec_t b) {
-		return a.x * b.x + a.y * b.y;
+	vec_t vec_from_polar_coordinates(float degrees, float length) {
+		degrees *= DEGREES_TO_RADIANS;
+		return length * vec_t(std::cosf(degrees), std::sinf(degrees));
 	}
 }
