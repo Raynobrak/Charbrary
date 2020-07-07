@@ -6,7 +6,7 @@
 #include "../Physics/AABB.cpp"
 
 TEST(AABB, ctor_vectors) {
-	CB::AABB aabb(CB::Vector(3.f, 5.f), CB::Vector(9.f, -8.f));
+	CB::AABB aabb(CB::vec_t(3.f, 5.f), CB::vec_t(9.f, -8.f));
 
 	EXPECT_FLOAT_EQ(aabb.pos.x, 3.f);
 	EXPECT_FLOAT_EQ(aabb.pos.y, 5.f);
@@ -44,35 +44,35 @@ TEST(AABB, move) {
 
 TEST(AABB, center) {
 	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
-	CB::Vector expected(8.f, 15.f);
+	CB::vec_t expected(8.f, 15.f);
 
 	EXPECT_EQ(aabb.center(), expected);
 }
 
 TEST(AABB, corner_tl) {
 	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
-	CB::Vector expected(3.f, 5.f);
+	CB::vec_t expected(3.f, 5.f);
 
 	EXPECT_EQ(aabb.corner(CB::Corner::TopLeft), expected);
 }
 
 TEST(AABB, corner_tr) {
 	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
-	CB::Vector expected(13.f, 5.f);
+	CB::vec_t expected(13.f, 5.f);
 
 	EXPECT_EQ(aabb.corner(CB::Corner::TopRight), expected);
 }
 
 TEST(AABB, corner_bl) {
 	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
-	CB::Vector expected(3.f, 25.f);
+	CB::vec_t expected(3.f, 25.f);
 
 	EXPECT_EQ(aabb.corner(CB::Corner::BottomLeft), expected);
 }
 
 TEST(AABB, corner_br) {
 	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
-	CB::Vector expected(13.f, 25.f);
+	CB::vec_t expected(13.f, 25.f);
 
 	EXPECT_EQ(aabb.corner(CB::Corner::BottomRight), expected);
 }
@@ -85,8 +85,8 @@ TEST(AABB, corner_invalid) {
 
 TEST(AABB, scaleRelativeToCenter) {
 	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
-	CB::Vector centerPosBefore = aabb.center();
-	CB::Vector expectedSize(6.f, 12.f);
+	CB::vec_t centerPosBefore = aabb.center();
+	CB::vec_t expectedSize(6.f, 12.f);
 
 	aabb.scaleRelativeToCenter(0.6f);
 
@@ -117,14 +117,14 @@ TEST(AABB, diagonalLength) {
 
 TEST(AABB, contains_true) {
 	CB::AABB aabb(6.f, 7.f, 10.f, 20.f);
-	CB::Vector point(6.f, 26.f);
+	CB::vec_t point(6.f, 26.f);
 
 	EXPECT_TRUE(aabb.contains(point));
 }
 
 TEST(AABB, contains_false) {
 	CB::AABB aabb(6.f, 7.f, 10.f, 20.f);
-	CB::Vector point(5.f, 14.f);
+	CB::vec_t point(5.f, 14.f);
 
 	EXPECT_FALSE(aabb.contains(point));
 }

@@ -14,7 +14,8 @@ limitations under the License. */
 
 #pragma once
 
-#include "Vector.h"
+#include "vector_type_definition.h"
+#include <string>
 
 namespace CB {
 
@@ -49,14 +50,14 @@ namespace CB {
 	struct SegmentsIntersection {
 
 		SegmentsIntersection(IntersectionType type_);
-		SegmentsIntersection(IntersectionType type_, const Vector& point_);
-		SegmentsIntersection(IntersectionType type_, const std::pair<Vector, Vector>& segment);
+		SegmentsIntersection(IntersectionType type_, const vec_t& point_);
+		SegmentsIntersection(IntersectionType type_, const std::pair<vec_t, vec_t>& segment);
 
 		IntersectionType type; /**< Type of the intersection. */
 
 		union {
-			Vector point; /**< Intersection point. */
-			std::pair<Vector, Vector> resultingSegment; /**< Overlapping range of 2 segments. */
+			vec_t point; /**< Intersection point. */
+			std::pair<vec_t, vec_t> resultingSegment; /**< Overlapping range of 2 segments. */
 		};
 	};
 }

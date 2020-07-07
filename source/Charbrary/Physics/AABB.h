@@ -14,7 +14,7 @@ limitations under the License. */
 
 #pragma once
 
-#include "Vector.h"
+#include "vector_type_definition.h"
 
 namespace CB {
 
@@ -42,9 +42,9 @@ namespace CB {
 
 	public:
 
-		Vector pos; /**< Position of the top-left corner of the AABB. */
+		vec_t pos; /**< Position of the top-left corner of the AABB. */
 
-		Vector size; /**< Size of the AABB. X for the width and Y for the height. */
+		vec_t size; /**< Size of the AABB. X for the width and Y for the height. */
 
 	public:
 
@@ -61,7 +61,7 @@ namespace CB {
 		 * \param position Position of the AABB.
 		 * \param size_ Size of the AABB.
 		 */
-		AABB(const Vector& position, const Vector& size_);
+		AABB(const vec_t& position, const vec_t& size_);
 
 		/**
 		 * \brief Constructs a new AABB from 4 values.
@@ -78,14 +78,14 @@ namespace CB {
 		 *
 		 * \param movement Vector representing the displacement.
 		 */
-		void move(const Vector& movement);
+		void move(const vec_t& movement);
 
 		/**
 		 * \brief Returns the center of the AABB.
 		 * 
 		 * \return The position of the AABB's center.
 		 */
-		Vector center() const;
+		vec_t center() const;
 
 		/**
 		 * \brief Computes the position of a single corner of the AABB.
@@ -97,7 +97,7 @@ namespace CB {
 		 * 
 		 * \return The position of the specified corner.
 		 */
-		Vector corner(const Corner corner) const;
+		vec_t corner(const Corner corner) const;
 
 		/**
 		 * \brief Scales the AABB's size.
@@ -131,7 +131,7 @@ namespace CB {
 		 * \param point The position of the point as a Vector.
 		 * \return True if the point is contained in the AABB, false otherwise.
 		 */
-		bool contains(const Vector& point) const;
+		bool contains(const vec_t& point) const;
 
 		/**
 		 * \brief Checks if the given AABB intersects the current AABB.

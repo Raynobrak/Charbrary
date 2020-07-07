@@ -19,7 +19,7 @@ namespace CB {
 
 	Circle::Circle() : pos(), radius(0) {}
 
-	Circle::Circle(const Vector& position, float radius_) : pos(position), radius(radius_) {}
+	Circle::Circle(const vec_t& position, float radius_) : pos(position), radius(radius_) {}
 
 	float Circle::diameter() const {
 		return 2 * radius;
@@ -37,17 +37,17 @@ namespace CB {
 		return AABB(pos.x - radius, pos.y - radius, radius * 2, radius * 2);
 	}
 
-	bool Circle::contains(const Vector& point) const {
-		return (pos - point).magnitudeSquared() < radius * radius;
+	bool Circle::contains(const vec_t& point) const {
+		return magnitudeSquared(pos - point) < radius * radius;
 	}
 
 	bool Circle::intersects(const Circle& other) const {
-		return (pos - other.pos).magnitudeSquared() < (radius + other.radius) * (radius + other.radius);
+		return magnitudeSquared(pos - other.pos) < (radius + other.radius) * (radius + other.radius);
 	}
 
 	bool Circle::strictlyContains(const Circle& other) const {
 		if (other.radius <= radius) {
-			return (pos - other.pos).magnitudeSquared() <= (radius - other.radius) * (radius - other.radius);
+			return magnitudeSquared(pos - other.pos) <= (radius - other.radius) * (radius - other.radius);
 		}
 		return false;
 	}

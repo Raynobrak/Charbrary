@@ -10,16 +10,16 @@
 
 TEST(LineSegment, ctor_default) {
 	CB::LineSegment expected;
-	expected.start = CB::Vector(0.f,0.f);
-	expected.end = CB::Vector(0.f,0.f);
+	expected.start = CB::vec_t(0.f,0.f);
+	expected.end = CB::vec_t(0.f,0.f);
 
 	EXPECT_EQ(CB::LineSegment(), expected);
 }
 
 TEST(LineSegment, ctor) {
 	CB::LineSegment expected;
-	expected.start = CB::Vector(45.f, -94.f);
-	expected.end = CB::Vector(2.f, 1.f);
+	expected.start = CB::vec_t(45.f, -94.f);
+	expected.end = CB::vec_t(2.f, 1.f);
 
 	EXPECT_EQ(CB::LineSegment({ 45.f, -94.f }, { 2.f,1.f }), expected);
 }
@@ -45,12 +45,12 @@ TEST(LineSegment, lengthSquared) {
 
 TEST(LineSegment, absoluteSize) {
 	CB::LineSegment segment({ -6.f, -2.f }, { -10.f,-5.f });
-	EXPECT_EQ(segment.absoluteSize(), CB::Vector(4.f, 3.f));
+	EXPECT_EQ(segment.absoluteSize(), CB::vec_t(4.f, 3.f));
 }
 
 TEST(LineSegment, dirFromStart) {
 	CB::LineSegment segment({ 10.f,10.f }, { 13.f,14.f });
-	EXPECT_EQ(segment.dirFromStart(), CB::Vector(0.6f, 0.8f));
+	EXPECT_EQ(segment.dirFromStart(), CB::vec_t(0.6f, 0.8f));
 }
 
 TEST(LineSegment, minX_maxX_minY_maxY) {
@@ -82,7 +82,7 @@ TEST(LineSegment, checkForIntersection_crossing_segments) {
 	auto intersection = first.checkForIntersection(second);
 
 	EXPECT_EQ(intersection.type, CB::IntersectionType::Crossing);
-	EXPECT_EQ(intersection.point, CB::Vector(-3.f, 2.f));
+	EXPECT_EQ(intersection.point, CB::vec_t(-3.f, 2.f));
 }
 
 TEST(LineSegment, checkForIntersection_intersecting_aabbs_but_no_crossing) {
@@ -99,7 +99,7 @@ TEST(LineSegment, checkForIntersection_segments_crossing_at_yIntercept) {
 	auto intersection = first.checkForIntersection(second);
 
 	ASSERT_EQ(intersection.type, CB::IntersectionType::Crossing);
-	EXPECT_EQ(intersection.point, CB::Vector(0.f, 1.f));
+	EXPECT_EQ(intersection.point, CB::vec_t(0.f, 1.f));
 }
 
 TEST(LineSegment, checkForIntersection_parallel_segments) {
@@ -154,7 +154,7 @@ TEST(LineSegment, checkForIntersection_horizontally_overlapping_segments) {
 
 TEST(LineSegment, YIntercept) {
 	float slope = 0.5f;
-	CB::Vector point(10.f, 3.f);
+	CB::vec_t point(10.f, 3.f);
 
 	float expected = -2.f;
 
@@ -164,7 +164,7 @@ TEST(LineSegment, YIntercept) {
 TEST(LineSegment, YIntercept_infinite_slope) {
 	CB::LineSegment verticalSegment({ 0.f,0.f }, { 0.f,1.f });
 
-	CB::Vector point = verticalSegment.start;
+	CB::vec_t point = verticalSegment.start;
 	
 	float expected = std::numeric_limits<float>::infinity();
 

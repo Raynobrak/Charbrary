@@ -13,117 +13,74 @@ See the License for the specific language governing permissions and
 limitations under the License. */
 
 #include "Vector.h"
-#include "Constants.h"
-
-#include <cmath>
 #include <stdexcept>
 
 namespace CB {
+	CBVEC::CBVEC(float X, float Y) : x(X), y(Y) {}
 
-	static const float DEGREES_TO_RADIANS = FLT_PI / 180.f;
-
-	Vector Vector::fromPolarCoordinates(float degrees, float length) {
-		degrees *= DEGREES_TO_RADIANS;
-		return length * Vector(std::cosf(degrees), std::sinf(degrees));
-	}
-
-	Vector::Vector(float X, float Y) : x(X), y(Y) {}
-
-	float Vector::magnitudeSquared() const {
-		return x * x + y * y;
-	}
-
-	float Vector::magnitude() const {
-		return std::sqrtf(magnitudeSquared());
-	}
-
-	Vector Vector::normalize() const {
-		if (x == 0 && y == 0) {
-			return Vector();
-		}
-
-		return *this / magnitude();
-	}
-
-	Vector Vector::abs() const {
-		return Vector(std::abs(x), std::abs(y));
-	}
-
-	Vector Vector::rotate(float angle) const {
-		angle *= DEGREES_TO_RADIANS;
-
-		// Formula taken from https://matthew-brett.github.io/teaching/rotation_2d.html
-		return Vector(std::cosf(angle) * x - std::sinf(angle) * y, std::sinf(angle) * x + std::cosf(angle) * y);
-	}
-
-	Vector & Vector::operator+=(const Vector & add) {
+	CBVEC & CBVEC::operator+=(const CBVEC & add) {
 		x += add.x;
 		y += add.y;
 		return *this;
 	}
 
-	Vector & Vector::operator-=(const Vector & substract) {
+	CBVEC & CBVEC::operator-=(const CBVEC & substract) {
 		*this += -substract;
 		return *this;
 	}
 
-	Vector & Vector::operator*=(const float scalar) {
+	CBVEC & CBVEC::operator*=(const float scalar) {
 		x *= scalar;
 		y *= scalar;
 		return *this;
 	}
 
-	Vector & Vector::operator/=(const float divisor) {
+	CBVEC & CBVEC::operator/=(const float divisor) {
 		if (divisor == 0) {
-			throw std::invalid_argument("Invalid argument : 'divisor' was 0, cannot divide by zero.");
+			throw std::invalid_argument("Invalid argument : Cannot divide vector by 0");
 		}
-
 		x /= divisor;
 		y /= divisor;
 		return *this;
 	}
 
-	void Vector::operator=(const Vector & other) {
+	void CBVEC::operator=(const CBVEC & other) {
 		x = other.x;
 		y = other.y;
 	}
 
-	float Vector::dotProduct(const Vector& a, const Vector& b) {
-		return a.x * b.x + a.y * b.y;
+	CBVEC operator+(const CBVEC & left, const CBVEC & right) {
+		return CBVEC(left.x + right.x, left.y + right.y);
 	}
 
-	Vector operator+(const Vector & left, const Vector & right) {
-		return Vector(left.x + right.x, left.y + right.y);
+	CBVEC operator-(const CBVEC & left, const CBVEC & right) {
+		return CBVEC(left.x - right.x, left.y - right.y);
 	}
 
-	Vector operator-(const Vector & left, const Vector & right) {
-		return Vector(left.x - right.x, left.y - right.y);
+	CBVEC operator-(const CBVEC & right) {
+		return CBVEC(-right.x, -right.y);
 	}
 
-	Vector operator-(const Vector & right) {
-		return Vector(-right.x, -right.y);
+	CBVEC operator*(const CBVEC & base, const float scalar) {
+		return CBVEC(base.x * scalar, base.y * scalar);
 	}
 
-	Vector operator*(const Vector & base, const float scalar) {
-		return Vector(base.x * scalar, base.y * scalar);
-	}
-
-	Vector operator*(const float scalar, const Vector & base) {
+	CBVEC operator*(const float scalar, const CBVEC & base) {
 		return base * scalar;
 	}
 
-	Vector operator/(const Vector & base, const float divisor) {
+	CBVEC operator/(const CBVEC & base, const float divisor) {
 		if (divisor == 0) {
 			throw std::invalid_argument("Invalid argument : Cannot divide vector by 0");
 		}
-		return Vector(base.x / divisor, base.y / divisor);
+		return CBVEC(base.x / divisor, base.y / divisor);
 	}
 
-	bool operator==(const Vector & left, const Vector & right) {
+	bool operator==(const CBVEC & left, const CBVEC & right) {
 		return left.x == right.x && left.y == right.y;
 	}
 
-	bool operator!=(const Vector & left, const Vector & right) {
+	bool operator!=(const CBVEC & left, const CBVEC & right) {
 		return !(left == right);
 	}
 }

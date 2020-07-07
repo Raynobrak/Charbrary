@@ -14,9 +14,8 @@ limitations under the License. */
 
 #pragma once
 
-#include "Vector.h"
+#include "vector_type_definition.h"
 #include "AABB.h"
-
 #include "SegmentsIntersection.h"
 
 namespace CB {
@@ -33,8 +32,8 @@ namespace CB {
 
 	public:
 
-		Vector start; /**< First point of the segment */
-		Vector end; /**< Second point of the segment */
+		vec_t start; /**< First point of the segment */
+		vec_t end; /**< Second point of the segment */
 
 	public:
 
@@ -48,7 +47,7 @@ namespace CB {
 		 * \param start_ First point of the segment.
 		 * \param end_ Second point of the segment.
 		 */
-		LineSegment(const Vector& start_, const Vector& end_);
+		LineSegment(const vec_t& start_, const vec_t& end_);
 
 		/**
 		 * \brief Computes the slope of the segment.
@@ -81,13 +80,13 @@ namespace CB {
 		 * \brief Computes a vector representing the size of the segment.
 		 * \return The absolute value of the size vector.
 		 */
-		Vector absoluteSize() const;
+		vec_t absoluteSize() const;
 
 		/**
 		 * \brief Computes a unit vector of the direction from start to end.
 		 * \return The direction from start to end.
 		 */
-		Vector dirFromStart() const;
+		vec_t dirFromStart() const;
 
 		/**
 		 * \brief Computes the min value of X on the segment.
@@ -141,7 +140,7 @@ namespace CB {
 		 * \param slope The slope of the right.
 		 * \return The y-intercept value.
 		 */
-		static float YIntercept(const Vector& anyPoint, float slope);
+		static float YIntercept(const vec_t& anyPoint, float slope);
 
 		/**
 		 * \brief Overload of the assignment operator.

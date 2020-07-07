@@ -1,5 +1,7 @@
 #include "Physics/SegmentsIntersection.h"
 
+#include <iostream>
+
 int main() {
-	//CB::SegmentsIntersection intersection{};
+	
 }

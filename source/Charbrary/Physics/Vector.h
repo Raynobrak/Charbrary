@@ -18,6 +18,7 @@ limitations under the License. */
 
 namespace CB {
 
+	/*
 	/**
 	 * \brief Represents a 2D vector.
 	 * 
@@ -37,20 +38,10 @@ namespace CB {
 	 * 
 	 * Most operators are overloaded to simplify vector calculus.
 	 */
-	class Vector {
+	class CBVEC {
 	public:	
 		float x; /**< Horizontal component of the vector. */
 		float y; /**< Vertical component of the vector. */
-
-		/*
-		 * \brief Constructs a new Vector from polar coordinates.
-		 * \param degrees Angle (in degrees) of the vector.
-		 * \param length Length of the vector.
-		 *
-		 * \return The polar coordinates converted to a cartesian vector.
-		 */
-		static Vector fromPolarCoordinates(float degrees, float length);
-
 	public:
 		/**
 		 * \brief Constructs a new Vector from it's X and Y values.
@@ -60,50 +51,7 @@ namespace CB {
 		 * By default, X and Y will be equal to 0. So constructing a vector without any
 		 * parameters is absolutely valid.
 		 */
-		Vector(float X = 0.f, float Y = 0.f);
-
-		/**
-		 * \brief Computes the magnitude squared.
-		 * 
-		 * Computes the magnitude of the current vector without "square-rooting" it. This is
-		 * very useful to compare the magnitude (find which vector is longest) of 2
-		 * vectors and avoid computing unnecessary square roots.
-		 * 
-		 * \return The magnitude squared of the current vector.
-		 */
-		float magnitudeSquared() const;
-
-		/**
-		 * \brief Computes the magnitude.
-		 * \return The magnitude of the current vector.
-		 */
-		float magnitude() const;
-
-		/**
-		 * \brief Normalizes the vector.
-		 * 
-		 * Computes the normalized version of the current vector. A normalized vector
-		 * is a vector with an intensity (magnitude) of 1. Normalized vectors can be
-		 * used to represent directions.
-		 * 
-		 * \note The current vector will not be modified.
-		 * \return A normalized copy of the current vector.
-		 */
-		Vector normalize() const;
-
-		/**
-		 * \brief Make the components of the vector positive.
-		 * \note The current vector will not be modified.
-		 * \return A copy of the current vector whose components are positive.
-		 */
-		Vector abs() const;
-
-		/**
-		 * \brief Rotates the current vector.
-		 * \note The current vector will not be modified.
-		 * \return A copy of the current vector rotated by the given angle.
-		 */
-		Vector rotate(float angle) const;
+		CBVEC(float X = 0.f, float Y = 0.f);
 
 		/**
 		 * \brief Overload of the addition-assignment operator.
@@ -114,7 +62,7 @@ namespace CB {
 		 * \param add The vector that will be added to the current vector.
 		 * \return A reference to the current vector.
 		 */
-		Vector& operator+=(const Vector& add);
+		CBVEC& operator+=(const CBVEC& add);
 
 		/**
 		 * \brief Overload of the substraction-assignment operator.
@@ -125,7 +73,7 @@ namespace CB {
 		 * \param add The vector that the current vector will be substracted by.
 		 * \return A reference to the current vector.
 		 */
-		Vector& operator-=(const Vector& substract);
+		CBVEC& operator-=(const CBVEC& substract);
 
 		/**
 		 * \brief Overload of the multiplication-assignment operator.
@@ -136,7 +84,7 @@ namespace CB {
 		 * \param scalar Scalar by which the current vector will be amplified.
 		 * \return A reference to the current vector.
 		 */
-		Vector& operator*=(const float scalar);
+		CBVEC& operator*=(const float scalar);
 
 		/**
 		 * \brief Overload of the division-assignment operator.
@@ -147,24 +95,12 @@ namespace CB {
 		 * \param divisor Number by which the current vector will be divided.
 		 * \return A reference to the current vector.
 		 */
-		Vector& operator/=(const float divisor);
+		CBVEC& operator/=(const float divisor);
 
 		/**
 		 * \brief Overload of the assignment operator.
 		 */
-		void operator=(const Vector& other);
-
-		/**
-		 * \brief Computes the dot product between 2 vectors.
-		 * 
-		 * \note The order of the vectors doesn't matter. In other terms,
-		 * dotProduct(a,b) will give the same result as dotProduct(b,a).
-		 * 
-		 * \param a Vector A.
-		 * \param b Vector B.
-		 * \return The result of the dot product, a scalar.
-		 */
-		static float dotProduct(const Vector& a, const Vector& b);
+		void operator=(const CBVEC& other);	
 	};
 
 	/**
@@ -174,7 +110,7 @@ namespace CB {
 	 * 
 	 * \return The sum as a new Vector.
 	 */
-	Vector operator+(const Vector& left, const Vector& right);
+	CBVEC operator+(const CBVEC& left, const CBVEC& right);
 
 	/**
 	 * \brief Overload of the substraction operator.
@@ -183,7 +119,7 @@ namespace CB {
 	 * 
 	 * \return The result as a new Vector.
 	 */
-	Vector operator-(const Vector& left, const Vector& right);
+	CBVEC operator-(const CBVEC& left, const CBVEC& right);
 
 	/**
 	 * \brief Overload of the unary minus operator.
@@ -192,7 +128,7 @@ namespace CB {
 	 * 
 	 * \return The result as a new Vector.
 	 */
-	Vector operator-(const Vector& right);
+	CBVEC operator-(const CBVEC& right);
 
 	/**
 	 * \brief Overload of the multiplication operator.
@@ -203,7 +139,7 @@ namespace CB {
 	 * \param scalar Scalar (real number) by which the current vector will be amplified.
 	 * \return The result as a new vector.
 	 */
-	Vector operator*(const Vector& base, const float scalar);
+	CBVEC operator*(const CBVEC& base, const float scalar);
 
 	/**
 	 * \brief Overload of the multiplication operator.
@@ -214,7 +150,7 @@ namespace CB {
 	 * \param scalar Scalar (real number) by which the current vector will be amplified.
 	 * \return The result as a new vector.
 	 */
-	Vector operator*(const float scalar, const Vector& base);
+	CBVEC operator*(const float scalar, const CBVEC& base);
 
 	/**
 	 * \brief Overload of the multiplication operator.
@@ -225,17 +161,17 @@ namespace CB {
 	 * \param scalar Scalar (real number) by which the current vector will be amplified.
 	 * \return The result as a new vector.
 	 */
-	Vector operator/(const Vector& base, const float divisor);
+	CBVEC operator/(const CBVEC& base, const float divisor);
 
 	/**
 	 * \brief Overload of the equality operator.
 	 * \return True if the 2 vectors are equal, false otherwise.
 	 */
-	bool operator==(const Vector& left, const Vector& right);
+	bool operator==(const CBVEC& left, const CBVEC& right);
 
 	/**
 	 * \brief Overload of the inequality operator.
 	 * \return true if the 2 vectors are different, false otherwise.
 	 */
-	bool operator!=(const Vector& left, const Vector& right);
+	bool operator!=(const CBVEC& left, const CBVEC& right);
 }

@@ -16,6 +16,6 @@ limitations under the License. */
 
 namespace CB {
 	SegmentsIntersection::SegmentsIntersection(IntersectionType type_) : type(type_) {}
-	SegmentsIntersection::SegmentsIntersection(IntersectionType type_, const Vector& point_) : type(type_), point(point_) {}
-	SegmentsIntersection::SegmentsIntersection(IntersectionType type_, const std::pair<Vector, Vector>& segment) : type(type_), resultingSegment(segment) {}
+	SegmentsIntersection::SegmentsIntersection(IntersectionType type_, const vec_t& point_) : type(type_), point(point_) {}
+	SegmentsIntersection::SegmentsIntersection(IntersectionType type_, const std::pair<vec_t, vec_t>& segment) : type(type_), resultingSegment(segment) {}
 }

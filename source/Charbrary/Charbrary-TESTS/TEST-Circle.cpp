@@ -44,14 +44,14 @@ TEST(Circle, enclosingAABB) {
 
 TEST(Circle, contains_true) {
 	CB::Circle circle({ 5.f,3.f }, 2.f);
-	CB::Vector point(6.f, 2.f);
+	CB::vec_t point(6.f, 2.f);
 
 	EXPECT_TRUE(circle.contains(point));
 }
 
 TEST(Circle, contains_false) {
 	CB::Circle circle({ 5.f,3.f }, 2.f);
-	CB::Vector point(6.f, -5.f);
+	CB::vec_t point(6.f, -5.f);
 
 	EXPECT_FALSE(circle.contains(point));
 }

@@ -14,7 +14,7 @@ limitations under the License. */
 
 #pragma once
 
-#include "Vector.h"
+#include "vector_type_definition.h"
 #include "AABB.h"
 
 namespace CB {
@@ -31,7 +31,7 @@ namespace CB {
 
 	public:
 
-		Vector pos; /**< The circle's center position. */
+		vec_t pos; /**< The circle's center position. */
 
 		float radius; /**< The circle's radius. */
 
@@ -49,7 +49,7 @@ namespace CB {
 		 * \param position Position of the center of the circle.
 		 * \param radius_ Radius of the circle.
 		 */
-		Circle(const Vector& position, float radius_);
+		Circle(const vec_t& position, float radius_);
 
 		/**
 		 * \brief Computes the diameter of the circle.
@@ -86,7 +86,7 @@ namespace CB {
 		 * \param point The position of the point.
 		 * \return True if the point is inside the circle, false otherwise.
 		 */
-		bool contains(const Vector& point) const;
+		bool contains(const vec_t& point) const;
 
 		/**
 		 * \brief Checks if the given circle intersects the current circle.

@@ -20,19 +20,19 @@ namespace CB {
 
 	AABB::AABB() : pos(0.f,0.f), size(0.f,0.f) {}
 
-	AABB::AABB(const Vector& position, const Vector& size_) : pos(position), size(size_) {}
+	AABB::AABB(const vec_t& position, const vec_t& size_) : pos(position), size(size_) {}
 
 	AABB::AABB(float left, float top, float width, float height) : pos(left,top), size(width,height) {}
 
-	void AABB::move(const Vector& movement) {
+	void AABB::move(const vec_t& movement) {
 		pos += movement;
 	}
 
-	Vector AABB::center() const {
-		return pos + size / 2;
+	vec_t AABB::center() const {
+		return pos + size / 2.f;
 	}
 
-	Vector AABB::corner(const Corner corner) const {
+	vec_t AABB::corner(const Corner corner) const {
 		switch (corner) {
 		case Corner::TopLeft:
 			return pos;
@@ -48,9 +48,9 @@ namespace CB {
 	}
 
 	void AABB::scaleRelativeToCenter(float factor) {
-		Vector centerPosBeforeTransform = center();
+		vec_t centerPosBeforeTransform = center();
 		size *= factor;
-		pos = centerPosBeforeTransform - size / 2;
+		pos = centerPosBeforeTransform - size / 2.f;
 	}
 
 	float AABB::perimeter() const {
@@ -62,10 +62,10 @@ namespace CB {
 	}
 
 	float AABB::diagonalLength() const {
-		return size.magnitude();
+		return magnitude(size);
 	}
 
-	bool AABB::contains(const Vector& point) const {
+	bool AABB::contains(const vec_t& point) const {
 		return	
 			point.x >= pos.x &&
 			point.y >= pos.y &&
@@ -83,7 +83,7 @@ namespace CB {
 	}
 
 	bool AABB::strictlyContains(const AABB& other) const {
-		if (size.magnitudeSquared() >= other.size.magnitudeSquared()) {
+		if (magnitudeSquared(size) >= magnitudeSquared(other.size)) {
 			AABB zone = *this;
 			zone.size -= other.size;
 
