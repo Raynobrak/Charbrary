@@ -148,7 +148,7 @@
     <ClInclude Include="Physics\LineSegment.h" />
     <ClInclude Include="Physics\SegmentsIntersection.h" />
     <ClInclude Include="Physics\Vector.h" />
-    <ClInclude Include="Physics\VectorMaths.h" />
+    <ClInclude Include="Physics\vector_maths_functions.h" />
     <ClInclude Include="Physics\vector_type_definition.h" />
     <ClInclude Include="Utils\Stopwatch.h" />
   </ItemGroup>
@@ -159,7 +159,7 @@
     <ClCompile Include="Physics\LineSegment.cpp" />
     <ClCompile Include="Physics\SegmentsIntersection.cpp" />
     <ClCompile Include="Physics\Vector.cpp" />
-    <ClCompile Include="Physics\VectorMaths.cpp" />
+    <ClCompile Include="Physics\vector_maths_functions.cpp" />
     <ClCompile Include="Utils\Stopwatch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

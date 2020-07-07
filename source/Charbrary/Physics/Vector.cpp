@@ -16,26 +16,26 @@ limitations under the License. */
 #include <stdexcept>
 
 namespace CB {
-	CBVEC::CBVEC(float X, float Y) : x(X), y(Y) {}
+	Vector::Vector(float X, float Y) : x(X), y(Y) {}
 
-	CBVEC & CBVEC::operator+=(const CBVEC & add) {
+	Vector & Vector::operator+=(const Vector & add) {
 		x += add.x;
 		y += add.y;
 		return *this;
 	}
 
-	CBVEC & CBVEC::operator-=(const CBVEC & substract) {
+	Vector & Vector::operator-=(const Vector & substract) {
 		*this += -substract;
 		return *this;
 	}
 
-	CBVEC & CBVEC::operator*=(const float scalar) {
+	Vector & Vector::operator*=(const float scalar) {
 		x *= scalar;
 		y *= scalar;
 		return *this;
 	}
 
-	CBVEC & CBVEC::operator/=(const float divisor) {
+	Vector & Vector::operator/=(const float divisor) {
 		if (divisor == 0) {
 			throw std::invalid_argument("Invalid argument : Cannot divide vector by 0");
 		}
@@ -44,43 +44,43 @@ namespace CB {
 		return *this;
 	}
 
-	void CBVEC::operator=(const CBVEC & other) {
+	void Vector::operator=(const Vector & other) {
 		x = other.x;
 		y = other.y;
 	}
 
-	CBVEC operator+(const CBVEC & left, const CBVEC & right) {
-		return CBVEC(left.x + right.x, left.y + right.y);
+	Vector operator+(const Vector & left, const Vector & right) {
+		return Vector(left.x + right.x, left.y + right.y);
 	}
 
-	CBVEC operator-(const CBVEC & left, const CBVEC & right) {
-		return CBVEC(left.x - right.x, left.y - right.y);
+	Vector operator-(const Vector & left, const Vector & right) {
+		return Vector(left.x - right.x, left.y - right.y);
 	}
 
-	CBVEC operator-(const CBVEC & right) {
-		return CBVEC(-right.x, -right.y);
+	Vector operator-(const Vector & right) {
+		return Vector(-right.x, -right.y);
 	}
 
-	CBVEC operator*(const CBVEC & base, const float scalar) {
-		return CBVEC(base.x * scalar, base.y * scalar);
+	Vector operator*(const Vector & base, const float scalar) {
+		return Vector(base.x * scalar, base.y * scalar);
 	}
 
-	CBVEC operator*(const float scalar, const CBVEC & base) {
+	Vector operator*(const float scalar, const Vector & base) {
 		return base * scalar;
 	}
 
-	CBVEC operator/(const CBVEC & base, const float divisor) {
+	Vector operator/(const Vector & base, const float divisor) {
 		if (divisor == 0) {
 			throw std::invalid_argument("Invalid argument : Cannot divide vector by 0");
 		}
-		return CBVEC(base.x / divisor, base.y / divisor);
+		return Vector(base.x / divisor, base.y / divisor);
 	}
 
-	bool operator==(const CBVEC & left, const CBVEC & right) {
+	bool operator==(const Vector & left, const Vector & right) {
 		return left.x == right.x && left.y == right.y;
 	}
 
-	bool operator!=(const CBVEC & left, const CBVEC & right) {
+	bool operator!=(const Vector & left, const Vector & right) {
 		return !(left == right);
 	}
 }

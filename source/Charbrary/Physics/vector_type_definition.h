@@ -1,8 +1,7 @@
 #pragma once
 
 // Uncomment the following line to use the vectors from the SFML library.
-#define USE_SFML_VECTORS 1
-#undef USE_SFML_VECTORS
+// #define USE_SFML_VECTORS 1
 
 #ifdef USE_SFML_VECTORS
 #include <SFML/System/Vector2.hpp>
@@ -12,8 +11,8 @@ namespace CB {
 #else
 #include "Vector.h"
 namespace CB {
-	using vec_t = CB::CBVEC;
+	using vec_t = CB::Vector;
 }
 #endif USE_SFML_VECTORS
 
-#include "VectorMaths.h"
+#include "vector_maths_functions.h"

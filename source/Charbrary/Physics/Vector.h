@@ -38,7 +38,7 @@ namespace CB {
 	 * 
 	 * Most operators are overloaded to simplify vector calculus.
 	 */
-	class CBVEC {
+	class Vector {
 	public:	
 		float x; /**< Horizontal component of the vector. */
 		float y; /**< Vertical component of the vector. */
@@ -51,7 +51,7 @@ namespace CB {
 		 * By default, X and Y will be equal to 0. So constructing a vector without any
 		 * parameters is absolutely valid.
 		 */
-		CBVEC(float X = 0.f, float Y = 0.f);
+		Vector(float X = 0.f, float Y = 0.f);
 
 		/**
 		 * \brief Overload of the addition-assignment operator.
@@ -62,7 +62,7 @@ namespace CB {
 		 * \param add The vector that will be added to the current vector.
 		 * \return A reference to the current vector.
 		 */
-		CBVEC& operator+=(const CBVEC& add);
+		Vector& operator+=(const Vector& add);
 
 		/**
 		 * \brief Overload of the substraction-assignment operator.
@@ -73,7 +73,7 @@ namespace CB {
 		 * \param add The vector that the current vector will be substracted by.
 		 * \return A reference to the current vector.
 		 */
-		CBVEC& operator-=(const CBVEC& substract);
+		Vector& operator-=(const Vector& substract);
 
 		/**
 		 * \brief Overload of the multiplication-assignment operator.
@@ -84,7 +84,7 @@ namespace CB {
 		 * \param scalar Scalar by which the current vector will be amplified.
 		 * \return A reference to the current vector.
 		 */
-		CBVEC& operator*=(const float scalar);
+		Vector& operator*=(const float scalar);
 
 		/**
 		 * \brief Overload of the division-assignment operator.
@@ -95,12 +95,12 @@ namespace CB {
 		 * \param divisor Number by which the current vector will be divided.
 		 * \return A reference to the current vector.
 		 */
-		CBVEC& operator/=(const float divisor);
+		Vector& operator/=(const float divisor);
 
 		/**
 		 * \brief Overload of the assignment operator.
 		 */
-		void operator=(const CBVEC& other);	
+		void operator=(const Vector& other);	
 	};
 
 	/**
@@ -110,7 +110,7 @@ namespace CB {
 	 * 
 	 * \return The sum as a new Vector.
 	 */
-	CBVEC operator+(const CBVEC& left, const CBVEC& right);
+	Vector operator+(const Vector& left, const Vector& right);
 
 	/**
 	 * \brief Overload of the substraction operator.
@@ -119,7 +119,7 @@ namespace CB {
 	 * 
 	 * \return The result as a new Vector.
 	 */
-	CBVEC operator-(const CBVEC& left, const CBVEC& right);
+	Vector operator-(const Vector& left, const Vector& right);
 
 	/**
 	 * \brief Overload of the unary minus operator.
@@ -128,7 +128,7 @@ namespace CB {
 	 * 
 	 * \return The result as a new Vector.
 	 */
-	CBVEC operator-(const CBVEC& right);
+	Vector operator-(const Vector& right);
 
 	/**
 	 * \brief Overload of the multiplication operator.
@@ -139,7 +139,7 @@ namespace CB {
 	 * \param scalar Scalar (real number) by which the current vector will be amplified.
 	 * \return The result as a new vector.
 	 */
-	CBVEC operator*(const CBVEC& base, const float scalar);
+	Vector operator*(const Vector& base, const float scalar);
 
 	/**
 	 * \brief Overload of the multiplication operator.
@@ -150,7 +150,7 @@ namespace CB {
 	 * \param scalar Scalar (real number) by which the current vector will be amplified.
 	 * \return The result as a new vector.
 	 */
-	CBVEC operator*(const float scalar, const CBVEC& base);
+	Vector operator*(const float scalar, const Vector& base);
 
 	/**
 	 * \brief Overload of the multiplication operator.
@@ -161,17 +161,17 @@ namespace CB {
 	 * \param scalar Scalar (real number) by which the current vector will be amplified.
 	 * \return The result as a new vector.
 	 */
-	CBVEC operator/(const CBVEC& base, const float divisor);
+	Vector operator/(const Vector& base, const float divisor);
 
 	/**
 	 * \brief Overload of the equality operator.
 	 * \return True if the 2 vectors are equal, false otherwise.
 	 */
-	bool operator==(const CBVEC& left, const CBVEC& right);
+	bool operator==(const Vector& left, const Vector& right);
 
 	/**
 	 * \brief Overload of the inequality operator.
 	 * \return true if the 2 vectors are different, false otherwise.
 	 */
-	bool operator!=(const CBVEC& left, const CBVEC& right);
+	bool operator!=(const Vector& left, const Vector& right);
 }

@@ -9,7 +9,7 @@
     <ClInclude Include="Physics\Constants.h" />
     <ClInclude Include="Utils\Stopwatch.h" />
     <ClInclude Include="Physics\vector_type_definition.h" />
-    <ClInclude Include="Physics\VectorMaths.h" />
+    <ClInclude Include="Physics\vector_maths_functions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Physics\Vector.cpp" />
@@ -19,6 +19,6 @@
     <ClCompile Include="Physics\LineSegment.cpp" />
     <ClCompile Include="Physics\SegmentsIntersection.cpp" />
     <ClCompile Include="Utils\Stopwatch.cpp" />
-    <ClCompile Include="Physics\VectorMaths.cpp" />
+    <ClCompile Include="Physics\vector_maths_functions.cpp" />
   </ItemGroup>
 </Project>

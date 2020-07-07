@@ -8,8 +8,8 @@
 #include "../Physics/Vector.cpp"
 #endif USE_SFML_VECTORS
 
-#include "../Physics/VectorMaths.h"
-#include "../Physics/VectorMaths.cpp"
+#include "../Physics/"vector_maths_functions.h"
+#include "../Physics/"vector_maths_functions.cpp"
 
 #define FLOAT_EPSILON std::numeric_limits<float>::epsilon()
 

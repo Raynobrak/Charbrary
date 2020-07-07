@@ -1,4 +1,4 @@
-#include "VectorMaths.h"
+#include "vector_maths_functions.h"
 #include "Constants.h"
 
 #include <cmath>
