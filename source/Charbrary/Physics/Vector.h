@@ -4,7 +4,6 @@
 
 namespace CB {
 
-	/*
 	/**
 	 * \brief Represents a 2D vector.
 	 * 
