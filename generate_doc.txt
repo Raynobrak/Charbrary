@@ -1,0 +1,7 @@
+1. Install doxygen
+2. Generate documentation :
+
+> doxygen doxygen_settings
+
+Note : "doxygen_settings" is the name of the file containing the settings necessary to generate the documentation.
+Note 2 : doxygen.exe must be in the PATH
