@@ -38,16 +38,16 @@ namespace CB {
 	}
 
 	bool Circle::contains(const vec_t& point) const {
-		return magnitudeSquared(pos - point) < radius * radius;
+		return vec_magnitude_squared(pos - point) < radius * radius;
 	}
 
 	bool Circle::intersects(const Circle& other) const {
-		return magnitudeSquared(pos - other.pos) < (radius + other.radius) * (radius + other.radius);
+		return vec_magnitude_squared(pos - other.pos) < (radius + other.radius) * (radius + other.radius);
 	}
 
 	bool Circle::strictlyContains(const Circle& other) const {
 		if (other.radius <= radius) {
-			return magnitudeSquared(pos - other.pos) <= (radius - other.radius) * (radius - other.radius);
+			return vec_magnitude_squared(pos - other.pos) <= (radius - other.radius) * (radius - other.radius);
 		}
 		return false;
 	}

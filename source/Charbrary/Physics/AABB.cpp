@@ -62,7 +62,7 @@ namespace CB {
 	}
 
 	float AABB::diagonalLength() const {
-		return magnitude(size);
+		return vec_magnitude(size);
 	}
 
 	bool AABB::contains(const vec_t& point) const {
@@ -83,7 +83,7 @@ namespace CB {
 	}
 
 	bool AABB::strictlyContains(const AABB& other) const {
-		if (magnitudeSquared(size) >= magnitudeSquared(other.size)) {
+		if (vec_magnitude_squared(size) >= vec_magnitude_squared(other.size)) {
 			AABB zone = *this;
 			zone.size -= other.size;
 

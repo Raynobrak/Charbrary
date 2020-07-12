@@ -21,19 +21,19 @@ namespace CB {
 	LineSegment::LineSegment(const vec_t& start_, const vec_t& end_) : start(start_), end(end_) {}
 
 	float LineSegment::length() const {
-		return magnitude(end - start);
+		return vec_magnitude(end - start);
 	}
 
 	float LineSegment::lengthSquared() const {
-		return magnitudeSquared(end - start);
+		return vec_magnitude_squared(end - start);
 	}
 
 	vec_t LineSegment::absoluteSize() const {
-		return abs(end - start);
+		return vec_abs(end - start);
 	}
 
 	vec_t LineSegment::dirFromStart() const {
-		return normalize(end - start);
+		return vec_normalize(end - start);
 	}
 
 	float LineSegment::slope() const {

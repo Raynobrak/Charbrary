@@ -75,11 +75,11 @@ namespace CB {
 	private:
 
 		/**
-		 * \brief Returns a time point representing the current moment.
+		 * \brief Returns a time_point representing the current moment.
 		 */
 		time_point now() const;
 
 		time_point start_; /**< Time at which the stopwatch started measuring */
-		time_point end_; /**< Time at which the stopwatch stoppeds measuring */
+		time_point end_; /**< Time at which the stopwatch stopped measuring */
 	};
 }
