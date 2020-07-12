@@ -1,0 +1,8 @@
+1. Install python (https://www.python.org/downloads/)
+Note : Choose the option to add python.exe to the PATH
+
+2. Install quom (https://pypi.org/project/Quom/) : 
+> python -m pip install quom
+
+3. Generate the single-include file : 
+> python -m quom main.cpp charbrary-single_include.hpp
