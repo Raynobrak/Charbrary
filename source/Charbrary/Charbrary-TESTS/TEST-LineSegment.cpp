@@ -3,10 +3,7 @@
 #include "pch.h"
 
 #include "../Physics/LineSegment.h"
-#include "../Physics/LineSegment.cpp"
-
 #include "../Physics/SegmentsIntersection.h"
-#include "../Physics/SegmentsIntersection.cpp"
 
 TEST(LineSegment, ctor_default) {
 	CB::LineSegment expected;
@@ -166,7 +163,7 @@ TEST(LineSegment, YIntercept_infinite_slope) {
 
 	CB::vec_t point = verticalSegment.start;
 	
-	float expected = std::numeric_limits<float>::infinity();
+	constexpr float expected = std::numeric_limits<float>::infinity();
 
 	EXPECT_EQ(CB::LineSegment::YIntercept(point, verticalSegment.slope()), expected);
 }

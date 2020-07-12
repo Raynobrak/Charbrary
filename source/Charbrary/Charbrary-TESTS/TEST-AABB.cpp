@@ -3,7 +3,6 @@
 #include "pch.h"
 
 #include "../Physics/AABB.h"
-#include "../Physics/AABB.cpp"
 
 TEST(AABB, ctor_vectors) {
 	CB::AABB aabb(CB::vec_t(3.f, 5.f), CB::vec_t(9.f, -8.f));

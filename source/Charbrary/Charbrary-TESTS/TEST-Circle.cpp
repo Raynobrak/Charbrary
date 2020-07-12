@@ -3,7 +3,6 @@
 #include "pch.h"
 
 #include "../Physics/Circle.h"
-#include "../Physics/Circle.cpp"
 
 TEST(Circle, default_constructor) {
 	CB::Circle circle;

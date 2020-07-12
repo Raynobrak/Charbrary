@@ -5,5 +5,6 @@
 
 #pragma once
 
-#include "../../packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1/build/native/include/gtest/gtest.h"
-//#include "gtest/gtest.h"
+#define FLOAT_EPSILON std::numeric_limits<float>::epsilon()
+
+#include "gtest/gtest.h"
