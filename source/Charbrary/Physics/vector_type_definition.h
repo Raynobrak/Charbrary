@@ -1,8 +1,5 @@
 #pragma once
 
-// Uncomment the following line to use the vectors from the SFML library.
-// #define USE_SFML_VECTORS 1
-
 #include "Vector.h"
 
 #ifdef USE_SFML_VECTORS
