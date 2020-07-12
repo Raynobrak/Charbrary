@@ -142,7 +142,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="charbrary-single_include.hpp" />
     <ClInclude Include="Physics\AABB.h" />
     <ClInclude Include="Physics\Circle.h" />
     <ClInclude Include="Physics\Constants.h" />
