@@ -6,9 +6,9 @@ namespace CB {
 
 	AABB::AABB() : pos(0.f,0.f), size(0.f,0.f) {}
 
-	AABB::AABB(const vec_t& position, const vec_t& size_) : pos(position), size(size_) {}
+	AABB::AABB(const vec_t& pos_, const vec_t& size_) : pos(pos_), size(size_) {}
 
-	AABB::AABB(float left, float top, float width, float height) : pos(left,top), size(width,height) {}
+	AABB::AABB(float x, float y, float w, float h) : pos(x,y), size(w,h) {}
 
 	void AABB::move(const vec_t& movement) {
 		pos += movement;
@@ -18,7 +18,7 @@ namespace CB {
 		return pos + size / 2.f;
 	}
 
-	vec_t AABB::corner(const Corner corner) const {
+	vec_t AABB::corner(Corner corner) const {
 		switch (corner) {
 		case Corner::TopLeft:
 			return pos;

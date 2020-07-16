@@ -17,12 +17,10 @@ namespace CB {
 	/**
 	 * \brief Represents an Axis-Aligned-Bounding-Box
 	 * 
-	 * An AABB is a rectangle whose sides are aligned with the axis of the world in
-	 * which it is defined.
-	 * It's a rectangle that cannot rotate.
+	 * An AABB is a rectangle that cannot rotate.
 	 * 
-	 * AABBs are commonly used to represent hitboxes. This class contains member
-	 * functions that allow simple collision detection between AABBs.
+	 * Since AABBs are commonly used to represent hitboxes, this class 
+	 * contains a few functions to help dealing with collision detection.
 	 */
 	class AABB {
 
@@ -43,54 +41,50 @@ namespace CB {
 
 		/**
 		 * \brief Constructs a new AABB from 2 vectors.
-		 * 
-		 * \param position Position of the AABB.
+		 * \param pos_ Position of the AABB.
 		 * \param size_ Size of the AABB.
 		 */
-		AABB(const vec_t& position, const vec_t& size_);
+		AABB(const vec_t& pos_, const vec_t& size_);
 
 		/**
 		 * \brief Constructs a new AABB from 4 values.
 		 * 
-		 * \param left Distance from the AABB to the vertical axis.
-		 * \param top Distance from the AABB to the horizontal axis.
-		 * \param width Width of the AABB.
-		 * \param height Height of the AABB.
+		 * \param x Top left corner position on the X axis.
+		 * \param y Top left corner position on the Y axis.
+		 * \param w Width of the AABB.
+		 * \param h Height of the AABB.
+		 *
+		 * Good alternative if you want to build an AABB without creating temporary vectors.
 		 */
-		AABB(float left, float top, float width, float height);
+		AABB(float x, float y, float w, float h);
 
 		/**
-		 * \brief Moves the AABB by the given movement.
-		 *
+		 * \brief Moves the AABB by the given movement vector.
 		 * \param movement Vector representing the displacement.
 		 */
 		void move(const vec_t& movement);
 
 		/**
 		 * \brief Returns the center of the AABB.
-		 * 
-		 * \return The position of the AABB's center.
+		 * \return The Position of the AABB's center.
 		 */
 		vec_t center() const;
 
 		/**
-		 * \brief Computes the position of a single corner of the AABB.
+		 * \brief Computes the position of a corner of the AABB.
 		 * 
-		 * Returns the position of one of the AABB's corner depending on the given enum
-		 * value (see Corner).
-		 * 
-		 * \param corner Desired corner position.
+		 * Returns the position of the specified corner (see enum Corner).
 		 * 
 		 * \return The position of the specified corner.
 		 */
-		vec_t corner(const Corner corner) const;
+		vec_t corner(Corner corner) const;
 
 		/**
-		 * \brief Scales the AABB's size.
+		 * \brief Scales the AABB's size while keeping it centered.
 		 * 
-		 * Scales the AABB's size by the given factor while keeping the same center
-		 * for the AABB. 
-		 * This method will also modify the position of the AABB (pos).
+		 * Scales the AABB's size by the given factor without moving it's center.
+		 *
+		 * \param factor Factor by which the size will be multiplied. Ex. A factor of 2 will double the width and height.
 		 */
 		void scaleRelativeToCenter(float factor);
 
@@ -107,7 +101,7 @@ namespace CB {
 		float area() const;
 
 		/**
-		 * \brief Computes the length of any of the AABB's diagonals.
+		 * \brief Computes the AABB's diagonal length.
 		 * \return Length of the diagonal.
 		 */
 		float diagonalLength() const;
@@ -121,7 +115,7 @@ namespace CB {
 
 		/**
 		 * \brief Checks if the given AABB intersects the current AABB.
-		 * \param other AABB which is potentially overlapping with the current AABB.
+		 * \param other AABB to check the collision with.
 		 * \return True if other intersects the current AABB, false otherwise.
 		 */
 		bool intersects(const AABB& other) const;
@@ -129,7 +123,7 @@ namespace CB {
 		/**
 		 * \brief Checks if the given AABB is entirely contained in the current AABB.
 		 * \param other AABB which is potentially contained inside the current AABB.
-		 * \return True if other is contained inside the current AABB, false otherwise.
+		 * \return True if other is strictly contained inside the current AABB, false otherwise.
 		 */
 		bool strictlyContains(const AABB& other) const;
 	};
