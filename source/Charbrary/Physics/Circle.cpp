@@ -5,7 +5,7 @@ namespace CB {
 
 	Circle::Circle() : pos(), radius(0) {}
 
-	Circle::Circle(const vec_t& position, float radius_) : pos(position), radius(radius_) {}
+	Circle::Circle(const vec_t& position_, float radius_) : pos(position_), radius(radius_) {}
 
 	float Circle::diameter() const {
 		return 2 * radius;

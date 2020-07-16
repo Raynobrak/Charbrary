@@ -7,11 +7,11 @@ namespace CB {
 
 	/**
 	 * \brief Represents a circle.
-	 * 
-	 * This class contains methods that perform common operations that can be done with
-	 * circles such as computing the diameter, the area, the circumference and also
-	 * collision detection.
-	 * Circles are defined by the position of their center (a vector) and their radius (a real number).
+	 *
+	 * This class contains member functions that perform common mathematical operations
+	 * done with circles (computing the area, perimeter, circumference) and also to help
+	 * dealing with collision detection.
+	 * Circles are defined by a position (the center) and a radius.
 	 */
 	class Circle {
 
@@ -24,7 +24,7 @@ namespace CB {
 	public:
 
 		/**
-		 * \brief Constructs a new Circle with default values.
+		 * \brief Constructs a new circle with default values.
 		 * 
 		 * The new circle will be positioned at 0,0 and have a radius of 0.
 		 */
@@ -35,7 +35,7 @@ namespace CB {
 		 * \param position Position of the center of the circle.
 		 * \param radius_ Radius of the circle.
 		 */
-		Circle(const vec_t& position, float radius_);
+		Circle(const vec_t& position_, float radius_);
 
 		/**
 		 * \brief Computes the diameter of the circle.
@@ -59,11 +59,7 @@ namespace CB {
 
 		/**
 		 * \brief Computes the smallest AABB that contains the current circle.
-		 * 
-		 * The computed AABB will be as small as possible and the Circle will be
-		 * centered inside it.
-		 * 
-		 * \return A new AABB containing the current circle.
+		 * \return An AABB able to contain the current circle.
 		 */
 		AABB enclosingAABB() const;
 
