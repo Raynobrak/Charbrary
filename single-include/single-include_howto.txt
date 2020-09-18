@@ -4,5 +4,7 @@ Note : Choose the option to add python.exe to the PATH
 2. Install quom (https://pypi.org/project/Quom/) : 
 > python -m pip install quom
 
-3. Generate the single-include file : 
-> python -m quom main.cpp charbrary-single_include.hpp
+3. Generate the single-include files : 
+Run the the "generate_single-include.py" script in this folder.
+
+4. Add "charbrary.cpp" to your project and #include "charbrary.h" where you need it.
