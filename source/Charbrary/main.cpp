@@ -1,3 +1,5 @@
+// BEGIN CHARBRARY.H
+
 /* Copyright 2019 Lucas Charbonnier
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,3 +29,10 @@ limitations under the License. */
 #include "Physics/LineSegment.h"
 #include "Physics/SegmentsIntersection.h"
 #include "Utils/Stopwatch.h"
+
+// END CHARBRARY.H
+// BEGIN CHARBRARY.CPP
+
+#pragma once
+// ~> implementation <~
+// END CHARBRARY.CPP
