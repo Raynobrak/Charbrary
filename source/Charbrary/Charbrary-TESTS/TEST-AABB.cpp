@@ -3,6 +3,9 @@
 #include "pch.h"
 
 #include "../Physics/AABB.h"
+#include "../Physics/Constants.h"
+
+#include <array>
 
 TEST(AABB, ctor_vectors) {
 	CB::AABB aabb(CB::vec_t(3.f, 5.f), CB::vec_t(9.f, -8.f));
@@ -80,6 +83,52 @@ TEST(AABB, corner_invalid) {
 	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
 
 	EXPECT_THROW(aabb.corner(static_cast<CB::Corner>(434923)), std::invalid_argument);
+}
+ 
+TEST(AABB, corners) {
+	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
+
+	auto corners = aabb.corners();
+
+	EXPECT_EQ(corners[0], aabb.corner(CB::Corner::TopLeft));
+	EXPECT_EQ(corners[1], aabb.corner(CB::Corner::TopRight));
+	EXPECT_EQ(corners[2], aabb.corner(CB::Corner::BottomLeft));
+	EXPECT_EQ(corners[3], aabb.corner(CB::Corner::BottomRight));
+}
+
+TEST(AABB, detectCollision_no_collision) {
+	CB::AABB current(0.f, 0.f, 10.f, 10.f);
+	CB::AABB other(50.f, 50.f, 30.f, 30.f);
+
+	EXPECT_EQ(current.detectCollision(other).normal, CB::NULL_VEC);
+}
+
+TEST(AABB, detectCollision_left) {
+	CB::AABB current(0.f, 0.f, 10.f, 10.f);
+	CB::AABB other(-1.f, 1.f, 3.f, 3.f);
+
+	EXPECT_EQ(current.detectCollision(other).normal, CB::LEFT_VEC);
+}
+
+TEST(AABB, detectCollision_right) {
+	CB::AABB current(0.f, 0.f, 10.f, 10.f);
+	CB::AABB other(8.f, 5.f, 40.f, 40.f);
+
+	EXPECT_EQ(current.detectCollision(other).normal, CB::RIGHT_VEC);
+}
+
+TEST(AABB, detectCollision_up) {
+	CB::AABB current(10.f, 10.f, 4.f, 4.f);
+	CB::AABB other(9.f, 9.f, 4.f, 2.f);
+
+	EXPECT_EQ(current.detectCollision(other).normal, CB::UP_VEC);
+}
+
+TEST(AABB, detectCollision_down) {
+	CB::AABB current(0.f, 0.f, 10.f, 10.f);
+	CB::AABB other(5.f, 9.f, 10.f, 10.f);
+
+	EXPECT_EQ(current.detectCollision(other).normal, CB::DOWN_VEC);
 }
 
 TEST(AABB, scaleRelativeToCenter) {
