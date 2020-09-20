@@ -1,9 +1,9 @@
 #pragma once
 
 #include "vector_type_definition.h"
+#include "AABBCollision.h"
 
 namespace CB {
-
 	/**
 	 * \brief Represents an AABB's corner.
 	 */
@@ -11,8 +11,22 @@ namespace CB {
 		TopLeft,
 		TopRight,
 		BottomLeft,
-		BottomRight
+		BottomRight,
+		MAX_VALUE
 	};
+
+	/**
+	 * \brief Utility function to find the opposite of a corner.
+	 *
+	 * The diagonally opposed corner is the "opposite" of a given corner.
+	 * Example : TopLeft is diagonally opposed to BottomRight and vice-versa.
+	 *
+	 * \returns The opposite of the given corner.
+	 */
+	constexpr Corner diagonally_opposed_corner(Corner corner);
+}
+
+namespace CB {
 
 	/**
 	 * \brief Represents an Axis-Aligned-Bounding-Box
@@ -80,6 +94,15 @@ namespace CB {
 		vec_t corner(Corner corner) const;
 
 		/**
+		 * \brief Computes the position of every corner of the AABB.
+		 * 
+		 * The returned std::array is ordered in the order as the Corner enum.
+		 * 
+		 * \return An array containing all 4 corners of the AABB.
+		 */
+		std::array<vec_t, static_cast<size_t>(Corner::MAX_VALUE)> corners() const;
+
+		/**
 		 * \brief Scales the AABB's size while keeping it centered.
 		 * 
 		 * Scales the AABB's size by the given factor without moving it's center.
@@ -126,6 +149,17 @@ namespace CB {
 		 * \return True if other is strictly contained inside the current AABB, false otherwise.
 		 */
 		bool strictlyContains(const AABB& other) const;
+
+		/**
+		 * \brief Checks if the given AABB collides the current AABB.
+		 * 
+		 * In case of a collision, this function returns an instance of AABBCollision containing the collision normal and the delta (overlap).
+		 * The collision normal is the direction (a unit vector) towards which the colliding AABB needs to be pushed in order to resolve the collision.
+		 * The collision normal will be set to a null vector (0,0) in case there is no collision.
+		 * 
+		 * \returns An AABBCollision containing information about the collision.
+		 */
+		AABBCollision detectCollision(const AABB& other) const;
 	};
 
 	/**
