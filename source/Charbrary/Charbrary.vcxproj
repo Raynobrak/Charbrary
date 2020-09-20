@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Physics\AABB.h" />
+    <ClInclude Include="Physics\AABBCollision.h" />
     <ClInclude Include="Physics\Circle.h" />
     <ClInclude Include="Physics\Constants.h" />
     <ClInclude Include="Physics\LineSegment.h" />

@@ -10,6 +10,7 @@
     <ClInclude Include="Utils\Stopwatch.h" />
     <ClInclude Include="Physics\vector_type_definition.h" />
     <ClInclude Include="Physics\vector_maths_functions.h" />
+    <ClInclude Include="Physics\AABBCollision.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Physics\Vector.cpp" />
