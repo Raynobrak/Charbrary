@@ -24,6 +24,7 @@ limitations under the License. */
 #include "Physics/vector_type_definition.h"
 #include "Physics/vector_maths_functions.h"
 
+#include "Physics/Corner.h"
 #include "Physics/AABB.h"
 #include "Physics/Circle.h"
 #include "Physics/LineSegment.h"

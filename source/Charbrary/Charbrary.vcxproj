@@ -146,6 +146,7 @@
     <ClInclude Include="Physics\AABBCollision.h" />
     <ClInclude Include="Physics\Circle.h" />
     <ClInclude Include="Physics\Constants.h" />
+    <ClInclude Include="Physics\Corner.h" />
     <ClInclude Include="Physics\LineSegment.h" />
     <ClInclude Include="Physics\SegmentsIntersection.h" />
     <ClInclude Include="Physics\Vector.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Physics\AABB.cpp" />
     <ClCompile Include="Physics\Circle.cpp" />
+    <ClCompile Include="Physics\Corner.cpp" />
     <ClCompile Include="Physics\LineSegment.cpp" />
     <ClCompile Include="Physics\SegmentsIntersection.cpp" />
     <ClCompile Include="Physics\Vector.cpp" />

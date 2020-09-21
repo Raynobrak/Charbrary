@@ -11,6 +11,7 @@
     <ClInclude Include="Physics\vector_type_definition.h" />
     <ClInclude Include="Physics\vector_maths_functions.h" />
     <ClInclude Include="Physics\AABBCollision.h" />
+    <ClInclude Include="Physics\Corner.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Physics\Vector.cpp" />
@@ -21,5 +22,6 @@
     <ClCompile Include="Physics\SegmentsIntersection.cpp" />
     <ClCompile Include="Utils\Stopwatch.cpp" />
     <ClCompile Include="Physics\vector_maths_functions.cpp" />
+    <ClCompile Include="Physics\Corner.cpp" />
   </ItemGroup>
 </Project>
