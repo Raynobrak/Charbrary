@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../class_c_b_1_1_vector.html#aa28e8a5591dd493bfba0c6c6b2877003',1,'CB::Vector']]]
+  ['type',['type',['../struct_c_b_1_1_segments_intersection.html#a80613e02558be9fc3cab1e25846931ad',1,'CB::SegmentsIntersection']]]
 ];

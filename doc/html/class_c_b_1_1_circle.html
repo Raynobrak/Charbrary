@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Charbrary
-   &#160;<span id="projectnumber">1.0.0</span>
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
   </td>
  </tr>
@@ -83,11 +83,11 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2263df0db8d3166d906a8b863e2adafd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_b_1_1_circle.html#a2263df0db8d3166d906a8b863e2adafd">Circle</a> ()</td></tr>
-<tr class="memdesc:a2263df0db8d3166d906a8b863e2adafd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="class_c_b_1_1_circle.html" title="Represents a circle.">Circle</a> with default values.  <a href="#a2263df0db8d3166d906a8b863e2adafd">More...</a><br /></td></tr>
+<tr class="memdesc:a2263df0db8d3166d906a8b863e2adafd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new circle with default values.  <a href="#a2263df0db8d3166d906a8b863e2adafd">More...</a><br /></td></tr>
 <tr class="separator:a2263df0db8d3166d906a8b863e2adafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92080898a1eb6ab1b89a2b700def1e14"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_b_1_1_circle.html#a92080898a1eb6ab1b89a2b700def1e14">Circle</a> (const <a class="el" href="class_c_b_1_1_vector.html">vec_t</a> &amp;position, float radius_)</td></tr>
-<tr class="memdesc:a92080898a1eb6ab1b89a2b700def1e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="class_c_b_1_1_circle.html" title="Represents a circle.">Circle</a> from a vector and a radius.  <a href="#a92080898a1eb6ab1b89a2b700def1e14">More...</a><br /></td></tr>
-<tr class="separator:a92080898a1eb6ab1b89a2b700def1e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33e41a958907bbecbf17e0e3e25a9854"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_b_1_1_circle.html#a33e41a958907bbecbf17e0e3e25a9854">Circle</a> (const <a class="el" href="class_c_b_1_1_vector.html">vec_t</a> &amp;position_, float radius_)</td></tr>
+<tr class="memdesc:a33e41a958907bbecbf17e0e3e25a9854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="class_c_b_1_1_circle.html" title="Represents a circle.">Circle</a> from a vector and a radius.  <a href="#a33e41a958907bbecbf17e0e3e25a9854">More...</a><br /></td></tr>
+<tr class="separator:a33e41a958907bbecbf17e0e3e25a9854"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e2f4767acec8aff56a6eb9a6e4e2240"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_b_1_1_circle.html#a0e2f4767acec8aff56a6eb9a6e4e2240">diameter</a> () const</td></tr>
 <tr class="memdesc:a0e2f4767acec8aff56a6eb9a6e4e2240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the diameter of the circle.  <a href="#a0e2f4767acec8aff56a6eb9a6e4e2240">More...</a><br /></td></tr>
 <tr class="separator:a0e2f4767acec8aff56a6eb9a6e4e2240"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,7 +122,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a circle. </p>
-<p>This class contains methods that perform common operations that can be done with circles such as computing the diameter, the area, the circumference and also collision detection. Circles are defined by the position of their center (a vector) and their radius (a real number). </p>
+<p>This class contains member functions that perform common mathematical operations done with circles (computing the area, perimeter, circumference) and also to help dealing with collision detection. Circles are defined by a position (the center) and a radius. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2263df0db8d3166d906a8b863e2adafd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2263df0db8d3166d906a8b863e2adafd">&#9670;&nbsp;</a></span>Circle() <span class="overload">[1/2]</span></h2>
@@ -139,13 +139,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a new <a class="el" href="class_c_b_1_1_circle.html" title="Represents a circle.">Circle</a> with default values. </p>
+<p>Constructs a new circle with default values. </p>
 <p>The new circle will be positioned at 0,0 and have a radius of 0. </p>
 
 </div>
 </div>
-<a id="a92080898a1eb6ab1b89a2b700def1e14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92080898a1eb6ab1b89a2b700def1e14">&#9670;&nbsp;</a></span>Circle() <span class="overload">[2/2]</span></h2>
+<a id="a33e41a958907bbecbf17e0e3e25a9854"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33e41a958907bbecbf17e0e3e25a9854">&#9670;&nbsp;</a></span>Circle() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +154,7 @@ Public Attributes</h2></td></tr>
           <td class="memname">CB::Circle::Circle </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_c_b_1_1_vector.html">vec_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
+          <td class="paramname"><em>position_</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -287,8 +287,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Computes the smallest <a class="el" href="class_c_b_1_1_a_a_b_b.html" title="Represents an Axis-Aligned-Bounding-Box.">AABB</a> that contains the current circle. </p>
-<p>The computed <a class="el" href="class_c_b_1_1_a_a_b_b.html" title="Represents an Axis-Aligned-Bounding-Box.">AABB</a> will be as small as possible and the <a class="el" href="class_c_b_1_1_circle.html" title="Represents a circle.">Circle</a> will be centered inside it.</p>
-<dl class="section return"><dt>Returns</dt><dd>A new <a class="el" href="class_c_b_1_1_a_a_b_b.html" title="Represents an Axis-Aligned-Bounding-Box.">AABB</a> containing the current circle. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An <a class="el" href="class_c_b_1_1_a_a_b_b.html" title="Represents an Axis-Aligned-Bounding-Box.">AABB</a> able to contain the current circle. </dd></dl>
 
 </div>
 </div>
