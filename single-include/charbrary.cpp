@@ -118,7 +118,6 @@ namespace CB {
 	}
 }
 
-#include <stdexcept>
 #include <array>
 
 namespace CB {
@@ -134,6 +133,9 @@ namespace CB {
 		return DIAGONALLY_OPPOSED_CORNERS[static_cast<size_t>(corner)];
 	}
 }
+
+#include <stdexcept>
+#include <array>
 
 namespace CB {
 

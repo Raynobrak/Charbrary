@@ -259,19 +259,6 @@ namespace CB {
 }
 
 namespace CB {
-
-	/*
-	 * \brief Contains information about the collision of 2 AABBs.
-	 */
-	struct AABBCollision {
-		vec_t normal; /**< The collision normal, a vector representing the direction of the collision. */
-		vec_t delta; /**< The overlap of the colliding AABB on the other AABB. */
-	};
-
-	
-}
-
-namespace CB {
 	/**
 	 * \brief Represents an AABB's corner.
 	 */
@@ -292,6 +279,19 @@ namespace CB {
 	 * \returns The opposite of the given corner.
 	 */
 	constexpr Corner diagonally_opposed_corner(Corner corner);
+}
+
+namespace CB {
+
+	/*
+	 * \brief Contains information about the collision of 2 AABBs.
+	 */
+	struct AABBCollision {
+		vec_t normal; /**< The collision normal, a vector representing the direction of the collision. */
+		vec_t delta; /**< The overlap of the colliding AABB on the other AABB. */
+	};
+
+	
 }
 
 namespace CB {
