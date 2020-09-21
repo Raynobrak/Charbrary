@@ -53,13 +53,12 @@ TEST_CASE("Vector, divide_assign_operator") {
 	REQUIRE((vector /= scalar) == expected);
 }
 
-//// TODO : test the exception
-//TEST_CASE("Vector, divide_assign_operator_div0_exception") {
-//	CB::Vector vector(3.f, -5.f);
-//	float scalar = 0.f;
-//
-//	EXPECT_THROW(vector /= scalar, std::invalid_argument);
-//}
+TEST_CASE("Vector, divide_assign_operator_div0_exception") {
+	CB::Vector vector(3.f, -5.f);
+	float scalar = 0.f;
+
+	REQUIRE_THROWS_AS(vector /= scalar, std::invalid_argument);
+}
 
 TEST_CASE("Vector, assign_operator") {
 	CB::Vector vector(-456.f, 201.f);
@@ -114,13 +113,12 @@ TEST_CASE("Vector, divide_operator") {
 	REQUIRE(vector / scalar == expected);
 }
 
-//// TODO : test the exception
-//TEST_CASE("Vector, divide_operator_div0_exception") {
-//	CB::Vector vector(3.f, -5.f);
-//	float scalar = 0.f;
-//
-//	EXPECT_THROW(vector / scalar, std::invalid_argument);
-//}
+TEST_CASE("Vector, divide_operator_div0_exception") {
+	CB::Vector vector(3.f, -5.f);
+	float scalar = 0.f;
+
+	REQUIRE_THROWS_AS(vector / scalar, std::invalid_argument);
+}
 
 TEST_CASE("Vector, equal_operator") {
 	CB::Vector a(3.f, -4.7f);

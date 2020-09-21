@@ -77,12 +77,11 @@ TEST_CASE("AABB, corner_br") {
 	REQUIRE(aabb.corner(CB::Corner::BottomRight) == expected);
 }
 
-//// TODO : test the exception 
-//TEST_CASE("AABB, corner_invalid") {
-//	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
-//
-//	EXPECT_THROW(aabb.corner(static_cast<CB::Corner>(434923)), std::invalid_argument);
-//}
+TEST_CASE("AABB, corner_invalid") {
+	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
+
+	REQUIRE_THROWS_AS(aabb.corner(static_cast<CB::Corner>(434923)), std::invalid_argument);
+}
  
 TEST_CASE("AABB, corners") {
 	CB::AABB aabb(3.f, 5.f, 10.f, 20.f);
