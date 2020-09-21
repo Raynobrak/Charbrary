@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="charbrary">
+      <UniqueIdentifier>{59aa79bb-2188-42f1-b86e-5f52a44014db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{b65eff02-e213-4d35-8ab0-f86a0f9cc120}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="catch2">
+      <UniqueIdentifier>{50e7159a-1de7-4bb4-b1fc-3a99569aad8b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\single-include\charbrary.cpp">
+      <Filter>charbrary</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST-AABB.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST-Circle.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST-LineSegment.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST-Vector.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST-vector_maths_functions.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\single-include\charbrary.h">
+      <Filter>charbrary</Filter>
+    </ClInclude>
+    <ClInclude Include="catch.hpp">
+      <Filter>catch2</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
