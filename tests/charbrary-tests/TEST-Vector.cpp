@@ -1,7 +1,6 @@
 #pragma once
 
-#include "catch.hpp"
-#include "../../single-include/charbrary.h"
+#include "charbrary_and_catch2.h"
 
 TEST_CASE("Vector, ctor") {
 	CB::Vector v(54.f, -23.f);

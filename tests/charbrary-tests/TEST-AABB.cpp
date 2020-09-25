@@ -1,7 +1,6 @@
 #pragma once
 
-#include "catch.hpp"
-#include "../../single-include/charbrary.h"
+#include "charbrary_and_catch2.h"
 
 #include <array>
 

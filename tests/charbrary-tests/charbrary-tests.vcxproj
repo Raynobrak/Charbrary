@@ -30,6 +30,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\single-include\charbrary.h" />
     <ClInclude Include="catch.hpp" />
+    <ClInclude Include="charbrary_and_catch2.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

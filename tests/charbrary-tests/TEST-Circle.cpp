@@ -1,7 +1,6 @@
 #pragma once
 
-#include "catch.hpp"
-#include "../../single-include/charbrary.h"
+#include "charbrary_and_catch2.h"
 
 TEST_CASE("Circle, default_constructor") {
 	CB::Circle circle;

@@ -1,7 +1,6 @@
 #pragma once
 
-#include "catch.hpp"
-#include "../../single-include/charbrary.h"
+#include "charbrary_and_catch2.h"
 
 TEST_CASE("vector_maths_functions, polar_coordinates_0degrees") {
 	CB::vec_t v = CB::vec_from_polar_coordinates(0.f, 10.f);

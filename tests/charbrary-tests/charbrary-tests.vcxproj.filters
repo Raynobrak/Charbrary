@@ -41,5 +41,8 @@
     <ClInclude Include="catch.hpp">
       <Filter>catch2</Filter>
     </ClInclude>
+    <ClInclude Include="charbrary_and_catch2.h">
+      <Filter>charbrary</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
