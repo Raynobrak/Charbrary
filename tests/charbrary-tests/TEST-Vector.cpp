@@ -9,14 +9,14 @@ TEST_CASE("construct vector from 2 floats", "[Vector]") {
 	REQUIRE(v.y == -23.f);
 }
 
-TEST_CASE("default construct vector", "[Vector]) {
+TEST_CASE("default construct vector", "[Vector]") {
 	CB::Vector v; 
 
 	REQUIRE(v.x == 0.f);
 	REQUIRE(v.y == 0.f);
 }
 
-TEST_CASE("vector add-assign operator", "[Vector]) {
+TEST_CASE("vector add-assign operator", "[Vector]") {
 	CB::Vector first(-1.f, 20.f);
 	CB::Vector second(3.f, -30);
 
@@ -25,7 +25,7 @@ TEST_CASE("vector add-assign operator", "[Vector]) {
 	REQUIRE((first += second) == expected);
 }
 
-TEST_CASE("vector substract-assign operator", "[Vector]) {
+TEST_CASE("vector substract-assign operator", "[Vector]") {
 	CB::Vector first(-1.f, 20.f);
 	CB::Vector second(3.f, -30);
 
@@ -34,7 +34,7 @@ TEST_CASE("vector substract-assign operator", "[Vector]) {
 	REQUIRE((first -= second) == expected);
 }
 
-TEST_CASE("vector multiply-assign operator", "[Vector]) {
+TEST_CASE("vector multiply-assign operator", "[Vector]") {
 	CB::Vector vector(3.f, -5.f);
 	float scalar = 1.5f;
 
@@ -43,7 +43,7 @@ TEST_CASE("vector multiply-assign operator", "[Vector]) {
 	REQUIRE((vector *= scalar) == expected);
 }
 
-TEST_CASE("vector divide-assign operator", "[Vector]) {
+TEST_CASE("vector divide-assign operator", "[Vector]") {
 	CB::Vector vector(3.f, -5.f);
 	float scalar = 2.f;
 
@@ -52,14 +52,14 @@ TEST_CASE("vector divide-assign operator", "[Vector]) {
 	REQUIRE((vector /= scalar) == expected);
 }
 
-TEST_CASE("vector divide assign operator with division by 0", "[Vector]) {
+TEST_CASE("vector divide assign operator with division by 0", "[Vector]") {
 	CB::Vector vector(3.f, -5.f);
 	float scalar = 0.f;
 
 	REQUIRE_THROWS_AS(vector /= scalar, std::invalid_argument);
 }
 
-TEST_CASE("vector assignment operator", "[Vector]) {
+TEST_CASE("vector assignment operator", "[Vector]") {
 	CB::Vector vector(-456.f, 201.f);
 
 	CB::Vector expected(13.f, -8.f);
@@ -69,7 +69,7 @@ TEST_CASE("vector assignment operator", "[Vector]) {
 	REQUIRE(vector == expected);
 }
 
-TEST_CASE("vector plus (+) operator", "[Vector]) {
+TEST_CASE("vector plus (+) operator", "[Vector]") {
 	CB::Vector first(-1.f, 20.f);
 	CB::Vector second(3.f, -30);
 
@@ -78,7 +78,7 @@ TEST_CASE("vector plus (+) operator", "[Vector]) {
 	REQUIRE(first + second == expected);
 }
 
-TEST_CASE("vector minus (-) operator", "[Vector]) {
+TEST_CASE("vector minus (-) operator", "[Vector]") {
 	CB::Vector first(-1.f, 20.f);
 	CB::Vector second(3.f, -30);
 
@@ -87,14 +87,14 @@ TEST_CASE("vector minus (-) operator", "[Vector]) {
 	REQUIRE(first - second == expected);
 }
 
-TEST_CASE("vector unary-minus operator", "[Vector]) {
+TEST_CASE("vector unary-minus operator", "[Vector]") {
 	CB::Vector v(45.f, -39.f);
 	CB::Vector expected(-45.f, 39.f);
 
 	REQUIRE(-v == expected);
 }
 
-TEST_CASE("vector multiply operator", "[Vector]) {
+TEST_CASE("vector multiply operator", "[Vector]") {
 	CB::Vector vector(3.f, -5.f);
 	float scalar = 1.5f;
 
@@ -103,7 +103,7 @@ TEST_CASE("vector multiply operator", "[Vector]) {
 	REQUIRE(vector * scalar == expected);
 }
 
-TEST_CASE("vector divide operator", "[Vector]) {
+TEST_CASE("vector divide operator", "[Vector]") {
 	CB::Vector vector(3.f, -5.f);
 	float scalar = 2.f;
 
@@ -112,21 +112,21 @@ TEST_CASE("vector divide operator", "[Vector]) {
 	REQUIRE(vector / scalar == expected);
 }
 
-TEST_CASE("vector divide operator with division by 0", "[Vector]) {
+TEST_CASE("vector divide operator with division by 0", "[Vector]") {
 	CB::Vector vector(3.f, -5.f);
 	float scalar = 0.f;
 
 	REQUIRE_THROWS_AS(vector / scalar, std::invalid_argument);
 }
 
-TEST_CASE("vector equality operator", "[Vector]) {
+TEST_CASE("vector equality operator", "[Vector]") {
 	CB::Vector a(3.f, -4.7f);
 	CB::Vector b(3.f, -4.7f);
 
 	REQUIRE(a == b);
 }
 
-TEST_CASE("vector inequality operator", "[Vector]) {
+TEST_CASE("vector inequality operator", "[Vector]") {
 	CB::Vector a(3.f, -4.7f);
 	CB::Vector b(3.1f, -4.7f);
 
