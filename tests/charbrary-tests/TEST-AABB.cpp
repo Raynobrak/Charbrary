@@ -4,7 +4,7 @@
 
 #include <array>
 
-TEST_CASE("construct aabb from 2 vectors", "[AABB]") {
+TEST_CASE("construct aabb from 2 vectors : the top left corner position and the size", "[AABB]") {
 	CB::AABB aabb(CB::vec_t(3.f, 5.f), CB::vec_t(9.f, -8.f));
 
 	REQUIRE(aabb.pos.x == 3.f);
