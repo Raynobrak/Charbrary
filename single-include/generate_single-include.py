@@ -2,6 +2,10 @@
 # Combines the entire Charbrary into a single source file (using quom) and separates the result in two files (.h and .cpp)
 
 import os
+import sys
+import importlib
+from importlib import util
+
 
 # Settings
 source_path = '..\source\Charbrary\main.cpp'
@@ -9,6 +13,11 @@ quom_output_file = 'charbrary_single-include.hpp'
 charbrary_header_file = 'charbrary.h'
 charbrary_implementation_file = 'charbrary.cpp'
 header_and_implementation_separation_symbol = 'BEGIN CHARBRARY.CPP'
+
+# Making sure quom is installed and exiting the script if it's not
+quom_spec = importlib.util.find_spec('quom')
+if quom_spec is None:
+	sys.exit('ERROR: Required module "quom" not installed. You can install it using "python -m pip install quom".')
 
 # Running quom (https://github.com/Viatorus/quom) to combine all the charbrary code into one file
 os.system('python -m quom "'+source_path+'" -s "~> implementation <~" ' + quom_output_file)
@@ -33,8 +42,6 @@ target = 'h'
 for line in lines:
 	if header_and_implementation_separation_symbol in line:
 		target = 'cpp'
-		print("found")
-
 	if target == 'h':
 		header.append(line)
 	elif target == 'cpp':
