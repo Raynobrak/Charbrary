@@ -18,6 +18,30 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\AABB.cpp" />
+    <ClCompile Include="src\Circle.cpp" />
+    <ClCompile Include="src\Corner.cpp" />
+    <ClCompile Include="src\LineSegment.cpp" />
+    <ClCompile Include="src\SegmentsIntersection.cpp" />
+    <ClCompile Include="src\Stopwatch.cpp" />
+    <ClCompile Include="src\Vector.cpp" />
+    <ClCompile Include="src\vector_maths_functions.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\AABB.h" />
+    <ClInclude Include="src\AABBCollision.h" />
+    <ClInclude Include="src\Circle.h" />
+    <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\Corner.h" />
+    <ClInclude Include="src\LineSegment.h" />
+    <ClInclude Include="src\SegmentsIntersection.h" />
+    <ClInclude Include="src\Stopwatch.h" />
+    <ClInclude Include="src\Vector.h" />
+    <ClInclude Include="src\vector_maths_functions.h" />
+    <ClInclude Include="src\vector_type_definition.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{0536AFEA-FD4F-48BC-ACE2-6CCEC7086FEA}</ProjectGuid>
@@ -141,30 +165,6 @@
       <AdditionalDependencies>sfml-graphics.lib; sfml-window.lib; sfml-system.lib; kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Physics\AABB.h" />
-    <ClInclude Include="Physics\AABBCollision.h" />
-    <ClInclude Include="Physics\Circle.h" />
-    <ClInclude Include="Physics\Constants.h" />
-    <ClInclude Include="Physics\Corner.h" />
-    <ClInclude Include="Physics\LineSegment.h" />
-    <ClInclude Include="Physics\SegmentsIntersection.h" />
-    <ClInclude Include="Physics\Vector.h" />
-    <ClInclude Include="Physics\vector_maths_functions.h" />
-    <ClInclude Include="Physics\vector_type_definition.h" />
-    <ClInclude Include="Utils\Stopwatch.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Physics\AABB.cpp" />
-    <ClCompile Include="Physics\Circle.cpp" />
-    <ClCompile Include="Physics\Corner.cpp" />
-    <ClCompile Include="Physics\LineSegment.cpp" />
-    <ClCompile Include="Physics\SegmentsIntersection.cpp" />
-    <ClCompile Include="Physics\Vector.cpp" />
-    <ClCompile Include="Physics\vector_maths_functions.cpp" />
-    <ClCompile Include="Utils\Stopwatch.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

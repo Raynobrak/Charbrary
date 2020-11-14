@@ -1,27 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Physics\Vector.h" />
-    <ClInclude Include="Physics\AABB.h" />
-    <ClInclude Include="Physics\Circle.h" />
-    <ClInclude Include="Physics\LineSegment.h" />
-    <ClInclude Include="Physics\SegmentsIntersection.h" />
-    <ClInclude Include="Physics\Constants.h" />
-    <ClInclude Include="Utils\Stopwatch.h" />
-    <ClInclude Include="Physics\vector_type_definition.h" />
-    <ClInclude Include="Physics\vector_maths_functions.h" />
-    <ClInclude Include="Physics\AABBCollision.h" />
-    <ClInclude Include="Physics\Corner.h" />
+    <ClCompile Include="src\Vector.cpp">
+      <Filter>source\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vector_maths_functions.cpp">
+      <Filter>source\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AABB.cpp">
+      <Filter>source\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Circle.cpp">
+      <Filter>source\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Corner.cpp">
+      <Filter>source\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LineSegment.cpp">
+      <Filter>source\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SegmentsIntersection.cpp">
+      <Filter>source\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Stopwatch.cpp">
+      <Filter>source\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Physics\Vector.cpp" />
-    <ClCompile Include="Physics\AABB.cpp" />
-    <ClCompile Include="Physics\Circle.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Physics\LineSegment.cpp" />
-    <ClCompile Include="Physics\SegmentsIntersection.cpp" />
-    <ClCompile Include="Utils\Stopwatch.cpp" />
-    <ClCompile Include="Physics\vector_maths_functions.cpp" />
-    <ClCompile Include="Physics\Corner.cpp" />
+    <ClInclude Include="src\Vector.h">
+      <Filter>source\vector</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vector_maths_functions.h">
+      <Filter>source\vector</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vector_type_definition.h">
+      <Filter>source\vector</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AABB.h">
+      <Filter>source\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AABBCollision.h">
+      <Filter>source\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Circle.h">
+      <Filter>source\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Corner.h">
+      <Filter>source\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LineSegment.h">
+      <Filter>source\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SegmentsIntersection.h">
+      <Filter>source\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Stopwatch.h">
+      <Filter>source\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Constants.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{9af15b7b-dd66-4b98-a02c-f6b5f18f2fa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\utils">
+      <UniqueIdentifier>{3c859d4c-5d80-4cde-aba3-c3665572ace7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\shapes">
+      <UniqueIdentifier>{df1868c7-d2da-43d9-ab74-f231affe66b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\vector">
+      <UniqueIdentifier>{7ad1ce9e-18c6-419f-90ee-f161d4e66667}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

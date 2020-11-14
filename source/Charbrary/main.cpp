@@ -19,17 +19,17 @@ limitations under the License. */
 // Uncomment the following line to use the vectors from the SFML library.
 // #define USE_SFML_VECTORS 1
 
-#include "Physics/Constants.h"
+#include "src/Constants.h"
 
-#include "Physics/vector_type_definition.h"
-#include "Physics/vector_maths_functions.h"
+#include "src/vector_type_definition.h"
+#include "src/vector_maths_functions.h"
 
-#include "Physics/Corner.h"
-#include "Physics/AABB.h"
-#include "Physics/Circle.h"
-#include "Physics/LineSegment.h"
-#include "Physics/SegmentsIntersection.h"
-#include "Utils/Stopwatch.h"
+#include "src/Corner.h"
+#include "src/AABB.h"
+#include "src/Circle.h"
+#include "src/LineSegment.h"
+#include "src/SegmentsIntersection.h"
+#include "src/Stopwatch.h"
 
 // END CHARBRARY.H
 // BEGIN CHARBRARY.CPP
