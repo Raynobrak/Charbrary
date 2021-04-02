@@ -28,6 +28,9 @@
     <ClCompile Include="main.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="src\rng_utils.cpp">
+      <Filter>source\rng</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Vector.h">
@@ -63,6 +66,9 @@
     <ClInclude Include="src\Constants.h">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="src\rng_utils.h">
+      <Filter>source\rng</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="source">
@@ -76,6 +82,9 @@
     </Filter>
     <Filter Include="source\vector">
       <UniqueIdentifier>{7ad1ce9e-18c6-419f-90ee-f161d4e66667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\rng">
+      <UniqueIdentifier>{37a6eb04-1696-49e2-8d7c-16c356640ba3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -24,6 +24,7 @@
     <ClCompile Include="src\Circle.cpp" />
     <ClCompile Include="src\Corner.cpp" />
     <ClCompile Include="src\LineSegment.cpp" />
+    <ClCompile Include="src\rng_utils.cpp" />
     <ClCompile Include="src\SegmentsIntersection.cpp" />
     <ClCompile Include="src\Stopwatch.cpp" />
     <ClCompile Include="src\Vector.cpp" />
@@ -36,6 +37,7 @@
     <ClInclude Include="src\Constants.h" />
     <ClInclude Include="src\Corner.h" />
     <ClInclude Include="src\LineSegment.h" />
+    <ClInclude Include="src\rng_utils.h" />
     <ClInclude Include="src\SegmentsIntersection.h" />
     <ClInclude Include="src\Stopwatch.h" />
     <ClInclude Include="src\Vector.h" />
