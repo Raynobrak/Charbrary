@@ -5,7 +5,9 @@
 
 namespace CB {
 
-	// Returns a reference to a static instance of the random engine
+	/**
+	 * \brief Returns a reference to a static instance of the random engine.
+	 */
 	std::default_random_engine& get_random_engine() {
 		static std::default_random_engine rng{ static_cast<unsigned int>(std::chrono::system_clock::now().time_since_epoch().count()) };
 		return rng;
