@@ -31,7 +31,7 @@ limitations under the License. */
 #include "src/SegmentsIntersection.h"
 
 #include "src/Stopwatch.h"
-#include "src/rng_utils.h"
+#include "src/rng_functions.h"
 
 // END CHARBRARY.H
 // BEGIN CHARBRARY.CPP
