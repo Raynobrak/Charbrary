@@ -1,7 +1,7 @@
+#include "rng_functions.h"
+
 #include <random>
 #include <chrono>
-
-#include "rng_functions.h"
 
 namespace ch {
 
