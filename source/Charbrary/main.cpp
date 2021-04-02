@@ -29,7 +29,9 @@ limitations under the License. */
 #include "src/Circle.h"
 #include "src/LineSegment.h"
 #include "src/SegmentsIntersection.h"
+
 #include "src/Stopwatch.h"
+#include "src/rng_utils.h"
 
 // END CHARBRARY.H
 // BEGIN CHARBRARY.CPP
