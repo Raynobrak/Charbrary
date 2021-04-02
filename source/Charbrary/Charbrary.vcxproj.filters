@@ -28,7 +28,7 @@
     <ClCompile Include="main.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="src\rng_utils.cpp">
+    <ClCompile Include="src\rng_functions.cpp">
       <Filter>source\rng</Filter>
     </ClCompile>
   </ItemGroup>
@@ -66,7 +66,7 @@
     <ClInclude Include="src\Constants.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="src\rng_utils.h">
+    <ClInclude Include="src\rng_functions.h">
       <Filter>source\rng</Filter>
     </ClInclude>
   </ItemGroup>
