@@ -55,8 +55,7 @@ namespace ch {
 		/**
 		 * \brief Computes the squared length of the segment.
 		 * 
-		 * Computes the length without square-rooting it. Similar
-		 * to ch::Vector::magnitudeSquared().
+		 * Computes the length without square-rooting it.
 		 * 
 		 * \return The length squared.
 		 */
