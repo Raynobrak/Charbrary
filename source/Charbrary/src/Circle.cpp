@@ -1,7 +1,7 @@
 #include "Circle.h"
 #include "Constants.h"
 
-namespace CB {
+namespace ch {
 
 	Circle::Circle() : pos(), radius(0) {}
 
@@ -12,11 +12,11 @@ namespace CB {
 	}
 
 	float Circle::circumference() const {
-		return 2 * CB::FLT_PI * radius;
+		return 2 * ch::FLT_PI * radius;
 	}
 
 	float Circle::area() const {
-		return CB::FLT_PI * radius * radius;
+		return ch::FLT_PI * radius * radius;
 	}
 
 	AABB Circle::enclosingAABB() const {

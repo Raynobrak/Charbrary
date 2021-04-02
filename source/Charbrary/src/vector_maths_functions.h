@@ -2,7 +2,7 @@
 
 #include "vector_type_definition.h"
 
-namespace CB {
+namespace ch {
 	/**
 	 * \brief Computes the magnitude squared of the given vector.
 	 *

@@ -1,9 +1,9 @@
 #include <random>
 #include <chrono>
 
-#include "rng_utils.h"
+#include "rng_functions.h"
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * \brief Returns a reference to a static instance of the random engine.

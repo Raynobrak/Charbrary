@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <array>
 
-namespace CB {
+namespace ch {
 
 	AABB::AABB() : pos(0.f,0.f), size(0.f,0.f) {}
 

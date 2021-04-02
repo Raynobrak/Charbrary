@@ -3,7 +3,7 @@
 #include "vector_type_definition.h"
 #include "AABB.h"
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * \brief Represents a circle.

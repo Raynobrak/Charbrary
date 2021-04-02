@@ -4,7 +4,7 @@
 #include <cmath>
 #include <stdexcept>
 
-namespace CB {
+namespace ch {
 	constexpr float DEGREES_TO_RADIANS = FLT_PI / 180.f;
 
 	float vec_magnitude_squared(vec_t v)  {

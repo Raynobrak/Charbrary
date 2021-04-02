@@ -1,6 +1,6 @@
 #pragma once
 
-namespace CB {
+namespace ch {
 	/**
 	 * \brief Represents an AABB's corner.
 	 */

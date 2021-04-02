@@ -4,7 +4,7 @@
 #include "AABB.h"
 #include "SegmentsIntersection.h"
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * \brief Represents a line segment.
@@ -56,7 +56,7 @@ namespace CB {
 		 * \brief Computes the squared length of the segment.
 		 * 
 		 * Computes the length without square-rooting it. Similar
-		 * to CB::Vector::magnitudeSquared().
+		 * to ch::Vector::magnitudeSquared().
 		 * 
 		 * \return The length squared.
 		 */

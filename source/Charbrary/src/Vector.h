@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * \brief Represents a 2D vector.

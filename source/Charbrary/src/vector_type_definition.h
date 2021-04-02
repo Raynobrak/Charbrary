@@ -4,12 +4,12 @@
 
 #ifdef USE_SFML_VECTORS
 #include <SFML/System/Vector2.hpp>
-namespace CB {
+namespace ch {
 	using vec_t = sf::Vector2f;
 }
 #else
-namespace CB {
-	using vec_t = CB::Vector;
+namespace ch {
+	using vec_t = ch::Vector;
 }
 #endif USE_SFML_VECTORS
 

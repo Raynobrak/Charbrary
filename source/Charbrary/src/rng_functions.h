@@ -2,7 +2,7 @@
 
 #include "vector_type_definition.h"
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * \brief Generates a random integer within the given boundaries. The lower and upper limits are inclusive, meaning they are included in the range of possible values.

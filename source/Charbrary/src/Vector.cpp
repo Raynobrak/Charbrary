@@ -1,7 +1,7 @@
 #include "Vector.h"
 #include <stdexcept>
 
-namespace CB {
+namespace ch {
 	Vector::Vector(float X, float Y) : x(X), y(Y) {}
 
 	Vector & Vector::operator+=(const Vector & add) {

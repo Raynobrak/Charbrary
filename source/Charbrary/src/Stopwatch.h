@@ -2,7 +2,7 @@
 
 #include <chrono>
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * \brief Represents a stopwatch.

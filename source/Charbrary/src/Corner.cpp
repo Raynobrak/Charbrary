@@ -2,7 +2,7 @@
 
 #include <array>
 
-namespace CB {
+namespace ch {
 	constexpr Corner diagonally_opposed_corner(Corner corner) {
 		constexpr std::array<Corner, static_cast<size_t>(Corner::MAX_VALUE)> DIAGONALLY_OPPOSED_CORNERS =
 		{

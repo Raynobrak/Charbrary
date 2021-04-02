@@ -3,7 +3,7 @@
 #include "vector_type_definition.h"
 #include "Constants.h"
 
-namespace CB {
+namespace ch {
 
 	/*
 	 * \brief Contains information about the collision of 2 AABBs.

@@ -1,6 +1,6 @@
 #include "LineSegment.h"
 
-namespace CB {
+namespace ch {
 
 	LineSegment::LineSegment() : start(), end() {}
 

@@ -3,7 +3,7 @@
 #include "vector_type_definition.h"
 #include <string>
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * Represents the type of intersection between 2 LineSegment.

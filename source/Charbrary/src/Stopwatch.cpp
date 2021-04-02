@@ -1,6 +1,6 @@
 #include "Stopwatch.h"
 
-namespace CB {
+namespace ch {
 
 	Stopwatch::Stopwatch() {
 		start();

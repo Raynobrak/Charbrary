@@ -4,7 +4,7 @@
 #include "AABBCollision.h"
 #include "Corner.h"
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * \brief Represents an Axis-Aligned-Bounding-Box
