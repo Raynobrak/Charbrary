@@ -64,6 +64,12 @@ namespace ch {
 		AABB enclosingAABB() const;
 
 		/**
+		* \brief Computes the distance to the given circle.
+		* \return A positive value if the circles do not overlap and a negative value otherwise.
+		*/
+		float distanceTo(const Circle& other) const;
+
+		/**
 		 * \brief Checks if the given point is contained inside the current circle.
 		 * \param point The position of the point.
 		 * \return True if the point is inside the circle, false otherwise.

@@ -23,6 +23,10 @@ namespace ch {
 		return AABB(pos.x - radius, pos.y - radius, radius * 2, radius * 2);
 	}
 
+	float Circle::distanceTo(const Circle& other) const {
+		return vec_magnitude(pos - other.pos) - radius - other.radius;
+	}
+
 	bool Circle::contains(const vec_t& point) const {
 		return vec_magnitude_squared(pos - point) < radius * radius;
 	}
