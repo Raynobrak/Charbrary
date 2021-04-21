@@ -30,7 +30,6 @@ namespace ch {
 		/** \returns True if the AABB contains the circle, false otherwise. */
 		bool aabb_contains(const AABB& aabb, const Circle& circle);
 
-
 		/** \returns True if the circle contains the point, false otherwise. */
 		bool circle_contains(const Circle& circle, const vec_t& point);
 
@@ -39,7 +38,6 @@ namespace ch {
 
 		/** \returns True if the circle contains the AABB, false otherwise. */
 		bool circle_contains(const Circle& circle, const AABB& aabb);
-
 
 		/** \returns True if the given AABBs intersect, false otherwise. */
 		bool aabb_intersects(const AABB& a, const AABB& b);
@@ -55,7 +53,6 @@ namespace ch {
 
 		/** \returns The distance separating two circles (negative if overlapping) */
 		float circles_distance(const Circle& a, const Circle& b);
-
 
 		/**
 		 * \brief Checks if the first AABB collides with the other one.

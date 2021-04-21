@@ -33,6 +33,8 @@ limitations under the License. */
 #include "src/Stopwatch.h"
 #include "src/rng_functions.h"
 
+#include "src/collision_functions.h"
+
 // END CHARBRARY.H
 // BEGIN CHARBRARY.CPP
 
