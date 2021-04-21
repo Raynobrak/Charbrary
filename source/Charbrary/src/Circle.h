@@ -58,40 +58,6 @@ namespace ch {
 		float area() const;
 
 		/**
-		 * \brief Computes the smallest AABB that contains the current circle.
-		 * \return An AABB able to contain the current circle.
-		 */
-		AABB enclosingAABB() const;
-
-		/**
-		* \brief Computes the distance to the given circle.
-		* \return A positive value if the circles do not overlap and a negative value otherwise.
-		*/
-		float distanceTo(const Circle& other) const;
-
-		/**
-		 * \brief Checks if the given point is contained inside the current circle.
-		 * \param point The position of the point.
-		 * \return True if the point is inside the circle, false otherwise.
-		 */
-		bool contains(const vec_t& point) const;
-
-		/**
-		 * \brief Checks if the given circle intersects the current circle.
-		 * \param other Another circle.
-		 * \return True if the circles are overlapping, false otherwise.
-		 */
-		bool intersects(const Circle& other) const;
-
-		/**
-		 * \brief Checks if the given circle is entirely contained inside the current
-		 * circle.
-		 * \param other The potentially contained circle.
-		 * \return True if the given circle is contained in the current circle.
-		 */
-		bool strictlyContains(const Circle& other) const;
-
-		/**
 		 * \brief Overload of the assignment operator.
 		 * \param toCopy Circle whose values will be copied into the current circle. 
 		 */

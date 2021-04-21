@@ -3,6 +3,9 @@
 #include "vector_type_definition.h"
 #include "AABBCollision.h"
 #include "Corner.h"
+#include "Circle.h"
+
+#include <array>
 
 namespace ch {
 
@@ -106,38 +109,6 @@ namespace ch {
 		 * \return Length of the diagonal.
 		 */
 		float diagonalLength() const;
-
-		/**
-		 * \brief Checks if the given point is inside the AABB.
-		 * \param point The position of the point as a Vector.
-		 * \return True if the point is contained in the AABB, false otherwise.
-		 */
-		bool contains(const vec_t& point) const;
-
-		/**
-		 * \brief Checks if the given AABB intersects the current AABB.
-		 * \param other AABB to check the collision with.
-		 * \return True if other intersects the current AABB, false otherwise.
-		 */
-		bool intersects(const AABB& other) const;
-
-		/**
-		 * \brief Checks if the given AABB is entirely contained in the current AABB.
-		 * \param other AABB which is potentially contained inside the current AABB.
-		 * \return True if other is strictly contained inside the current AABB, false otherwise.
-		 */
-		bool strictlyContains(const AABB& other) const;
-
-		/**
-		 * \brief Checks if the given AABB collides the current AABB.
-		 * 
-		 * In case of a collision, this function returns an instance of AABBCollision containing the collision normal and the delta (overlap).
-		 * The collision normal is the direction (a unit vector) towards which the colliding AABB needs to be pushed in order to resolve the collision.
-		 * The collision normal will be set to a null vector (0,0) in case there is no collision.
-		 * 
-		 * \returns An AABBCollision containing information about the collision.
-		 */
-		AABBCollision detectCollision(const AABB& other) const;
 	};
 
 	/**

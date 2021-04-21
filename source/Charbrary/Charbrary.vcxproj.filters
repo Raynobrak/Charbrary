@@ -31,6 +31,9 @@
     <ClCompile Include="src\rng_functions.cpp">
       <Filter>source\rng</Filter>
     </ClCompile>
+    <ClCompile Include="src\collision_functions.cpp">
+      <Filter>source\collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Vector.h">
@@ -43,9 +46,6 @@
       <Filter>source\vector</Filter>
     </ClInclude>
     <ClInclude Include="src\AABB.h">
-      <Filter>source\shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\AABBCollision.h">
       <Filter>source\shapes</Filter>
     </ClInclude>
     <ClInclude Include="src\Circle.h">
@@ -69,6 +69,18 @@
     <ClInclude Include="src\rng_functions.h">
       <Filter>source\rng</Filter>
     </ClInclude>
+    <ClInclude Include="src\collision_functions.h">
+      <Filter>source\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AABBCollision.h">
+      <Filter>source\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CirclesCollision.h">
+      <Filter>source\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CircleAABBCollision.h">
+      <Filter>source\collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="source">
@@ -85,6 +97,9 @@
     </Filter>
     <Filter Include="source\rng">
       <UniqueIdentifier>{37a6eb04-1696-49e2-8d7c-16c356640ba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\collision">
+      <UniqueIdentifier>{fd0cbbe1-817e-4fc9-bd35-d4877081e794}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

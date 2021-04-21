@@ -1,5 +1,7 @@
 #include "LineSegment.h"
 
+#include "collision_functions.h"
+
 namespace ch {
 
 	LineSegment::LineSegment() : start(), end() {}
@@ -33,7 +35,7 @@ namespace ch {
 	}
 
 	SegmentsIntersection LineSegment::checkForIntersection(const LineSegment& other) const {
-		if (enclosingAABB().intersects(other.enclosingAABB())) {
+		if (collision::aabb_intersects(enclosingAABB(), other.enclosingAABB())) {
 			float slopeCurrent = slope();
 			float slopeOther = other.slope();
 			float YInterceptCurrent = YIntercept(start, slopeCurrent);

@@ -22,6 +22,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\AABB.cpp" />
     <ClCompile Include="src\Circle.cpp" />
+    <ClCompile Include="src\collision_functions.cpp" />
     <ClCompile Include="src\Corner.cpp" />
     <ClCompile Include="src\LineSegment.cpp" />
     <ClCompile Include="src\rng_functions.cpp" />
@@ -34,6 +35,9 @@
     <ClInclude Include="src\AABB.h" />
     <ClInclude Include="src\AABBCollision.h" />
     <ClInclude Include="src\Circle.h" />
+    <ClInclude Include="src\CircleAABBCollision.h" />
+    <ClInclude Include="src\CirclesCollision.h" />
+    <ClInclude Include="src\collision_functions.h" />
     <ClInclude Include="src\Constants.h" />
     <ClInclude Include="src\Corner.h" />
     <ClInclude Include="src\LineSegment.h" />

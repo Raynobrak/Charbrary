@@ -19,29 +19,6 @@ namespace ch {
 		return ch::FLT_PI * radius * radius;
 	}
 
-	AABB Circle::enclosingAABB() const {
-		return AABB(pos.x - radius, pos.y - radius, radius * 2, radius * 2);
-	}
-
-	float Circle::distanceTo(const Circle& other) const {
-		return vec_magnitude(pos - other.pos) - radius - other.radius;
-	}
-
-	bool Circle::contains(const vec_t& point) const {
-		return vec_magnitude_squared(pos - point) < radius * radius;
-	}
-
-	bool Circle::intersects(const Circle& other) const {
-		return vec_magnitude_squared(pos - other.pos) < (radius + other.radius) * (radius + other.radius);
-	}
-
-	bool Circle::strictlyContains(const Circle& other) const {
-		if (other.radius <= radius) {
-			return vec_magnitude_squared(pos - other.pos) <= (radius - other.radius) * (radius - other.radius);
-		}
-		return false;
-	}
-
 	void Circle::operator=(const Circle& toCopy) {
 		pos = toCopy.pos;
 		radius = toCopy.radius;

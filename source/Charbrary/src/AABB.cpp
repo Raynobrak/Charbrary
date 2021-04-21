@@ -2,7 +2,6 @@
 #include "Constants.h"
 
 #include <stdexcept>
-#include <array>
 
 namespace ch {
 
@@ -62,82 +61,6 @@ namespace ch {
 
 	float AABB::diagonalLength() const {
 		return vec_magnitude(size);
-	}
-
-	bool AABB::contains(const vec_t& point) const {
-		return	
-			point.x >= pos.x &&
-			point.y >= pos.y &&
-			point.x <= pos.x + size.x &&
-			point.y <= pos.y + size.y;
-	}
-
-	bool AABB::intersects(const AABB& other) const {
-		AABB extended = other;
-
-		extended.size += size;
-		extended.pos -= size;
-
-		return extended.contains(pos);
-	}
-
-	bool AABB::strictlyContains(const AABB& other) const {
-		if (vec_magnitude_squared(size) >= vec_magnitude_squared(other.size)) {
-			AABB zone = *this;
-			zone.size -= other.size;
-
-			return zone.contains(other.pos);
-		}
-		return false;
-	}
-
-	AABBCollision AABB::detectCollision(const AABB& other) const {
-		if (!intersects(other)) {
-			return { NULL_VEC, NULL_VEC };
-		}
-
-		auto currentCorners = corners();
-		auto otherCorners = other.corners();
-
-		auto otherCenter = other.center();
-
-		float closestCornerDistanceSquared = std::numeric_limits<float>::infinity();
-
-		Corner closestCorner = Corner::MAX_VALUE;
-
-		for (size_t i = 0; i < static_cast<size_t>(Corner::MAX_VALUE); ++i) {
-			float distanceToOtherCenterSquared = vec_magnitude(currentCorners[i] - otherCenter);
-
-			if (distanceToOtherCenterSquared < closestCornerDistanceSquared) {
-				closestCornerDistanceSquared = distanceToOtherCenterSquared;
-				closestCorner = static_cast<Corner>(i);
-			}
-		}
-
-		Corner oppositeCorner = diagonally_opposed_corner(closestCorner);
-
-		auto c1 = currentCorners[static_cast<size_t>(closestCorner)];
-		auto c2 = otherCorners[static_cast<size_t>(oppositeCorner)];
-		vec_t delta =  c1 - c2;
-		delta = vec_abs(delta);
-
-		AABBCollision collision;
-		collision.delta = delta;
-
-		if (delta.x > delta.y) {
-			if (closestCorner == Corner::TopLeft || closestCorner == Corner::TopRight)
-				collision.normal = UP_VEC;
-			else
-				collision.normal = DOWN_VEC;
-		}
-		else {
-			if (closestCorner == Corner::TopLeft || closestCorner == Corner::BottomLeft)
-				collision.normal = LEFT_VEC;
-			else
-				collision.normal = RIGHT_VEC;
-		}
-
-		return collision;
 	}
 
 	bool operator==(const AABB& left, const AABB& right) {
