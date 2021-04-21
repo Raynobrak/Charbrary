@@ -16,11 +16,6 @@ namespace ch {
 	 * - force
 	 * - etc...
 	 * 
-	 * The components are public and can be directly like so
-	 * 
-	 * Common vector operations such as computing the magnitude, normalizing or
-	 * computing the dot product are encapsulated in member functions.
-	 * 
 	 * Most operators are overloaded to simplify vector calculus.
 	 */
 	class Vector {
