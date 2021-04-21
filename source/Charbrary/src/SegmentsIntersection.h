@@ -6,7 +6,7 @@
 namespace ch {
 
 	/**
-	 * Represents the type of intersection between 2 LineSegment.
+	 * \brief Represents the type of intersection between 2 LineSegment.
 	 */
 	enum class IntersectionType {
 		None, /**< The 2 segments are not intersecting. */

@@ -12,6 +12,4 @@ namespace ch {
 		vec_t normal; /**< The collision normal, a vector representing the direction of the collision. */
 		vec_t delta; /**< The overlap of the colliding AABB on the other AABB. */
 	};
-
-	
 }
