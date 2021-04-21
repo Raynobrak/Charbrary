@@ -14,3 +14,4 @@ namespace ch {
 #endif USE_SFML_VECTORS
 
 #include "vector_maths_functions.h"
+#include "Constants.h"
