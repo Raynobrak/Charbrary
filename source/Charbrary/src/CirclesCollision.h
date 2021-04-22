@@ -4,7 +4,7 @@
 
 namespace ch {
 
-	/*
+	/**
 	 * \brief Contains information about a collision between 2 circles.
 	 */
 	struct CirclesCollision {

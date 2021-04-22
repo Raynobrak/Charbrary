@@ -4,7 +4,7 @@
 
 namespace ch {
 
-	/*
+	/**
 	 * \brief Contains information about a collision between an AABB and a circle.
 	 */
 	struct CircleAABBCollision {
