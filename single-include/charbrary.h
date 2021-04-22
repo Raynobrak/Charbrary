@@ -242,6 +242,7 @@ namespace ch {
 	vec_t vec_from_polar_coordinates(float degrees, float length);
 }
 
+//! Contains everything related to the Charbrary
 namespace ch {
 	constexpr float FLT_PI = 3.14159265359f;
 
@@ -298,14 +299,14 @@ namespace ch {
 
 namespace ch {
 
-	/*
+	/**
 	 * \brief Contains information about a collision between 2 AABBs.
 	 */
 	struct AABBCollision {
 		vec_t normal; /**< The collision normal, a vector representing the direction of the collision. */
 		vec_t delta; /**< The overlap of the colliding AABB on the other AABB. */
 
-		/*
+		/**
 		 * \returns The penetration depth of the collision (= the length of the delta vector along the collision normal)
 		 */
 		float absolutePenetrationDepthAlongNormal() const;
@@ -750,6 +751,8 @@ namespace ch {
 #include <vector>
 
 namespace ch { 
+
+	//! Contains random number generation (RNG) utils
 	namespace rand {
 
 		/**
@@ -821,7 +824,7 @@ namespace ch {
 
 namespace ch {
 
-	/*
+	/**
 	 * \brief Contains information about a collision between 2 circles.
 	 */
 	struct CirclesCollision {
@@ -832,7 +835,7 @@ namespace ch {
 
 namespace ch {
 
-	/*
+	/**
 	 * \brief Contains information about a collision between an AABB and a circle.
 	 */
 	struct CircleAABBCollision {
@@ -842,6 +845,8 @@ namespace ch {
 }
 
 namespace ch {
+
+	//! Contains collision detection utils for 2D shapes (AABBs, circles, lines)
 	namespace collision {
 
 		/** \return A circle that contains the given AABB. */
