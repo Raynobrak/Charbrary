@@ -11,8 +11,9 @@ namespace ch {
 		vec_t normal; /**< The collision normal, a vector representing the direction of the collision. */
 		vec_t delta; /**< The overlap of the colliding AABB on the other AABB. */
 
-		float absolutePenetrationDepthAlongNormal() const {
-			return vec_dot_product(normal, delta);
-		}
+		/*
+		 * \returns The penetration depth of the collision (= the length of the delta vector along the collision normal)
+		 */
+		float absolutePenetrationDepthAlongNormal() const;
 	};
 }
