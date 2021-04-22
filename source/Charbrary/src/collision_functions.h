@@ -8,6 +8,8 @@
 #include "LineSegment.h"
 
 namespace ch {
+
+	//! Contains collision detection utils for 2D shapes (AABBs, circles, lines)
 	namespace collision {
 
 		/** \return A circle that contains the given AABB. */

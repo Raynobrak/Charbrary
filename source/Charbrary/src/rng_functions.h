@@ -5,6 +5,8 @@
 #include <vector>
 
 namespace ch { 
+
+	//! Contains random number generation (RNG) utils
 	namespace rand {
 
 		/**

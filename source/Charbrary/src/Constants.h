@@ -2,6 +2,7 @@
 
 #include "vector_type_definition.h"
 
+//! Contains everything related to the Charbrary
 namespace ch {
 	constexpr float FLT_PI = 3.14159265359f;
 
