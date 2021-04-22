@@ -190,8 +190,8 @@ namespace ch {
 
 			return NO_COLLISION;
 		}
-		SegmentsIntersection line_segments_intersection_info(const LineSegment& first, const LineSegment& other)
-		{
+
+		SegmentsIntersection line_segments_intersection_info(const LineSegment& first, const LineSegment& other) {
 			if (collision::aabb_intersects(enclosingAABB(first), enclosingAABB(other))) {
 				float slopeCurrent = first.slope();
 				float slopeOther = other.slope();
