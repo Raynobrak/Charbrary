@@ -21,7 +21,7 @@ limitations under the License. */
 
 #include <string>
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * \brief Represents a 2D vector.
@@ -34,11 +34,6 @@ namespace CB {
 	 * - size
 	 * - force
 	 * - etc...
-	 * 
-	 * The components are public and can be directly like so
-	 * 
-	 * Common vector operations such as computing the magnitude, normalizing or
-	 * computing the dot product are encapsulated in member functions.
 	 * 
 	 * Most operators are overloaded to simplify vector calculus.
 	 */
@@ -182,16 +177,16 @@ namespace CB {
 
 #ifdef USE_SFML_VECTORS
 #include <SFML/System/Vector2.hpp>
-namespace CB {
+namespace ch {
 	using vec_t = sf::Vector2f;
 }
 #else
-namespace CB {
-	using vec_t = CB::Vector;
+namespace ch {
+	using vec_t = ch::Vector;
 }
 #endif USE_SFML_VECTORS
 
-namespace CB {
+namespace ch {
 	/**
 	 * \brief Computes the magnitude squared of the given vector.
 	 *
@@ -247,18 +242,20 @@ namespace CB {
 	vec_t vec_from_polar_coordinates(float degrees, float length);
 }
 
-namespace CB {
+namespace ch {
 	constexpr float FLT_PI = 3.14159265359f;
 
-	static const CB::vec_t LEFT_VEC = { -1.f, 0.f };
-	static const CB::vec_t RIGHT_VEC = { 1.f, 0.f };
-	static const CB::vec_t UP_VEC = { 0.f, 1.f };
-	static const CB::vec_t DOWN_VEC = { 0.f, -1.f };
+	// The charbrary use a top-left-origin coordinate system. Below are constants for the direction of each axis.
 
-	static const CB::vec_t NULL_VEC = { 0.f,0.f };
+	static const ch::vec_t LEFT_VEC = { -1.f, 0.f };
+	static const ch::vec_t RIGHT_VEC = { 1.f, 0.f };
+	static const ch::vec_t UP_VEC = { 0.f, -1.f };
+	static const ch::vec_t DOWN_VEC = { 0.f, 1.f };
+
+	static const ch::vec_t NULL_VEC = { 0.f,0.f };
 }
 
-namespace CB {
+namespace ch {
 	/**
 	 * \brief Represents an AABB's corner.
 	 */
@@ -271,7 +268,7 @@ namespace CB {
 	};
 
 	/**
-	 * \brief Utility function to find the opposite of a corner.
+	 * \brief Utility function to find the diagonal opposite of a corner.
 	 *
 	 * The diagonally opposed corner is the "opposite" of a given corner.
 	 * Example : TopLeft is diagonally opposed to BottomRight and vice-versa.
@@ -279,22 +276,119 @@ namespace CB {
 	 * \returns The opposite of the given corner.
 	 */
 	constexpr Corner diagonally_opposed_corner(Corner corner);
+
+	/**
+	 * \brief Utility function to find the vertical opposite of a corner.
+	 *
+	 * Example : TopLeft is vertically opposed to BottomLeft and vice-versa.
+	 *
+	 * \returns The vertical opposite of the given corner.
+	 */
+	constexpr Corner vertically_opposed_corner(Corner corner);
+
+	/**
+	 * \brief Utility function to find the horizontal opposite of a corner.
+	 *
+	 * Example : TopLeft is horizontally opposed to TopRight and vice-versa.
+	 *
+	 * \returns The horizontal opposite of the given corner.
+	 */
+	constexpr Corner horizontally_opposed_corner(Corner corner);
 }
 
-namespace CB {
+namespace ch {
 
 	/*
-	 * \brief Contains information about the collision of 2 AABBs.
+	 * \brief Contains information about a collision between 2 AABBs.
 	 */
 	struct AABBCollision {
 		vec_t normal; /**< The collision normal, a vector representing the direction of the collision. */
 		vec_t delta; /**< The overlap of the colliding AABB on the other AABB. */
-	};
 
-	
+		/*
+		 * \returns The penetration depth of the collision (= the length of the delta vector along the collision normal)
+		 */
+		float absolutePenetrationDepthAlongNormal() const;
+	};
 }
 
-namespace CB {
+namespace ch {
+
+	/**
+	 * \brief Represents a circle.
+	 *
+	 * This class contains member functions that perform common mathematical operations
+	 * done with circles (computing the area, perimeter, circumference) and also to help
+	 * dealing with collision detection.
+	 * Circles are defined by a position (the center) and a radius.
+	 */
+	class Circle {
+
+	public:
+
+		vec_t pos; /**< The circle's center position. */
+
+		float radius; /**< The circle's radius. */
+
+	public:
+
+		/**
+		 * \brief Constructs a new circle with default values.
+		 * 
+		 * The new circle will be positioned at 0,0 and have a radius of 0.
+		 */
+		Circle();
+
+		/**
+		 * \brief Constructs a new Circle from a vector and a radius.
+		 * \param position Position of the center of the circle.
+		 * \param radius_ Radius of the circle.
+		 */
+		Circle(const vec_t& position_, float radius_);
+
+		/**
+		 * \brief Computes the diameter of the circle.
+		 * \return The diameter (radius * 2).
+		 */
+		float diameter() const;
+
+		/**
+		 * \brief Computes the circumference of the circle.
+		 * \note The value for PI that will be used is the one contained in Constants.h
+		 * \return The circumference.
+		 */
+		float circumference() const;
+
+		/**
+		 * \brief Computes the area of the circle. 
+		 * \note The value for PI that will be used is the one contained in Constants.h
+		 * \return The area of the circle.
+		 */
+		float area() const;
+
+		/**
+		 * \brief Overload of the assignment operator.
+		 * \param toCopy Circle whose values will be copied into the current circle. 
+		 */
+		void operator=(const Circle& toCopy);
+	};
+
+	/**
+	 * \brief Overload of the equality operator between 2 circles.
+	 * \return True if left is equal to right.
+	 */
+	bool operator==(const Circle& left, const Circle& right);
+
+	/**
+	 * \brief Overload of the inequality operator between 2 circles.
+	 * \return True if left and right are different.
+	 */
+	bool operator!=(const Circle& left, const Circle& right);
+}
+
+#include <array>
+
+namespace ch {
 
 	/**
 	 * \brief Represents an Axis-Aligned-Bounding-Box
@@ -396,38 +490,6 @@ namespace CB {
 		 * \return Length of the diagonal.
 		 */
 		float diagonalLength() const;
-
-		/**
-		 * \brief Checks if the given point is inside the AABB.
-		 * \param point The position of the point as a Vector.
-		 * \return True if the point is contained in the AABB, false otherwise.
-		 */
-		bool contains(const vec_t& point) const;
-
-		/**
-		 * \brief Checks if the given AABB intersects the current AABB.
-		 * \param other AABB to check the collision with.
-		 * \return True if other intersects the current AABB, false otherwise.
-		 */
-		bool intersects(const AABB& other) const;
-
-		/**
-		 * \brief Checks if the given AABB is entirely contained in the current AABB.
-		 * \param other AABB which is potentially contained inside the current AABB.
-		 * \return True if other is strictly contained inside the current AABB, false otherwise.
-		 */
-		bool strictlyContains(const AABB& other) const;
-
-		/**
-		 * \brief Checks if the given AABB collides the current AABB.
-		 * 
-		 * In case of a collision, this function returns an instance of AABBCollision containing the collision normal and the delta (overlap).
-		 * The collision normal is the direction (a unit vector) towards which the colliding AABB needs to be pushed in order to resolve the collision.
-		 * The collision normal will be set to a null vector (0,0) in case there is no collision.
-		 * 
-		 * \returns An AABBCollision containing information about the collision.
-		 */
-		AABBCollision detectCollision(const AABB& other) const;
 	};
 
 	/**
@@ -443,114 +505,12 @@ namespace CB {
 	bool operator!=(const AABB& left, const AABB& right);
 }
 
-namespace CB {
-
-	/**
-	 * \brief Represents a circle.
-	 *
-	 * This class contains member functions that perform common mathematical operations
-	 * done with circles (computing the area, perimeter, circumference) and also to help
-	 * dealing with collision detection.
-	 * Circles are defined by a position (the center) and a radius.
-	 */
-	class Circle {
-
-	public:
-
-		vec_t pos; /**< The circle's center position. */
-
-		float radius; /**< The circle's radius. */
-
-	public:
-
-		/**
-		 * \brief Constructs a new circle with default values.
-		 * 
-		 * The new circle will be positioned at 0,0 and have a radius of 0.
-		 */
-		Circle();
-
-		/**
-		 * \brief Constructs a new Circle from a vector and a radius.
-		 * \param position Position of the center of the circle.
-		 * \param radius_ Radius of the circle.
-		 */
-		Circle(const vec_t& position_, float radius_);
-
-		/**
-		 * \brief Computes the diameter of the circle.
-		 * \return The diameter (radius * 2).
-		 */
-		float diameter() const;
-
-		/**
-		 * \brief Computes the circumference of the circle.
-		 * \note The value for PI that will be used is the one contained in Constants.h
-		 * \return The circumference.
-		 */
-		float circumference() const;
-
-		/**
-		 * \brief Computes the area of the circle. 
-		 * \note The value for PI that will be used is the one contained in Constants.h
-		 * \return The area of the circle.
-		 */
-		float area() const;
-
-		/**
-		 * \brief Computes the smallest AABB that contains the current circle.
-		 * \return An AABB able to contain the current circle.
-		 */
-		AABB enclosingAABB() const;
-
-		/**
-		 * \brief Checks if the given point is contained inside the current circle.
-		 * \param point The position of the point.
-		 * \return True if the point is inside the circle, false otherwise.
-		 */
-		bool contains(const vec_t& point) const;
-
-		/**
-		 * \brief Checks if the given circle intersects the current circle.
-		 * \param other Another circle.
-		 * \return True if the circles are overlapping, false otherwise.
-		 */
-		bool intersects(const Circle& other) const;
-
-		/**
-		 * \brief Checks if the given circle is entirely contained inside the current
-		 * circle.
-		 * \param other The potentially contained circle.
-		 * \return True if the given circle is contained in the current circle.
-		 */
-		bool strictlyContains(const Circle& other) const;
-
-		/**
-		 * \brief Overload of the assignment operator.
-		 * \param toCopy Circle whose values will be copied into the current circle. 
-		 */
-		void operator=(const Circle& toCopy);
-	};
-
-	/**
-	 * \brief Overload of the equality operator between 2 circles.
-	 * \return True if left is equal to right.
-	 */
-	bool operator==(const Circle& left, const Circle& right);
-
-	/**
-	 * \brief Overload of the inequality operator between 2 circles.
-	 * \return True if left and right are different.
-	 */
-	bool operator!=(const Circle& left, const Circle& right);
-}
-
 #include <string>
 
-namespace CB {
+namespace ch {
 
 	/**
-	 * Represents the type of intersection between 2 LineSegment.
+	 * \brief Represents the type of intersection between 2 LineSegment.
 	 */
 	enum class IntersectionType {
 		None, /**< The 2 segments are not intersecting. */
@@ -592,7 +552,7 @@ namespace CB {
 	};
 }
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * \brief Represents a line segment.
@@ -643,8 +603,7 @@ namespace CB {
 		/**
 		 * \brief Computes the squared length of the segment.
 		 * 
-		 * Computes the length without square-rooting it. Similar
-		 * to CB::Vector::magnitudeSquared().
+		 * Computes the length without square-rooting it.
 		 * 
 		 * \return The length squared.
 		 */
@@ -681,28 +640,6 @@ namespace CB {
 		 * \brief Computes the max value of Y on the segment.
 		 */
 		float maxY() const;
-
-		/**
-		 * \brief Computes the enclosing AABB.
-		 * 
-		 * Finds the smallest possible AABB that contains both points of the segment.
-		 * 
-		 * \return The enclosing AABB.
-		 */
-		AABB enclosingAABB() const;
-
-		/**
-		 * \brief Checks if the current segment and other are intersecting.
-		 * 
-		 * This methods generates a SegmentsIntersection instance representing the
-		 * state of intersection between the 2 segments. 
-		 * 
-		 * \note See the SegmentsIntersection class to learn how to interpret the
-		 *  	 result of this method.
-		 * \param other The segment to check for intersection with.
-		 * \return A SegmentsIntersection giving information about the intersection.
-		 */
-		SegmentsIntersection checkForIntersection(const LineSegment& other) const;
 
 		/**
 		 * \brief Computes the y-intercept value of a right (infinite line).
@@ -742,7 +679,7 @@ namespace CB {
 
 #include <chrono>
 
-namespace CB {
+namespace ch {
 
 	/**
 	 * \brief Represents a stopwatch.
@@ -808,6 +745,199 @@ namespace CB {
 		time_point start_; /**< Time at which the stopwatch started measuring */
 		time_point end_; /**< Time at which the stopwatch stopped measuring */
 	};
+}
+
+#include <vector>
+
+namespace ch { 
+	namespace rand {
+
+		/**
+		 * \brief Generates a random integer within the given boundaries. The lower and upper limits are inclusive, meaning they are included in the range of possible values.
+		 */
+		int rand_int(int lowerInc, int upperInc);
+
+		/**
+		 * \brief Generates a random float within the given boundaries. The lower and upper limits are inclusive, meaning they are included in the range of possible values.
+		 */
+		float rand_float(float min, float max);
+
+		/**
+		* \brief Returns a random boolean.
+		*/
+		bool rand_bit();
+		 
+		/**
+		* \brief Returns a boolean with the given probability of being true.
+		*/
+		bool rand_bit(float probability);
+
+		/**
+		* \brief Generates a random normalized float (between -1 and 1).
+		*/
+		float rnd_normal_float();
+
+		/**
+		 * \brief Generates a random angle in degrees (between 0 and 360).
+		 */
+		float rnd_angle_deg();
+
+		/**
+		 * \brief Generates a random angle in radians (between 0 and 2*pi).
+		 */
+		float rnd_angle_rad();
+
+		/**
+		 * \brief Generates a vector with random XY values within the given boundaries.
+		 */
+		vec_t rand_vector(float minX, float maxX, float minY, float maxY);
+
+		/**
+		 * \brief Generates a random unit vector.
+		 */
+		vec_t rand_unit_vector();
+
+		/**
+		 * \brief Generates a random point located on the given rectangle.
+		 */
+		vec_t rand_point_on_rect(vec_t topLeftCorner, vec_t size);
+
+		/**
+		 * \brief Generates a random point located on the given rectangle.
+		 */
+		vec_t rand_point_on_rect(vec_t center, float width, float height);
+
+		/**
+		 * \brief Generates a random point located on the given circle.
+		 */
+		vec_t rand_point_on_circle(float circleRadius, vec_t circleCenter = { 0.f,0.f });
+
+		/**
+		 * \brief Generates a random point located on the given taurus (taurus = donut).
+		 */
+		vec_t rand_point_on_torus(float innerRadius, float outerRadius, vec_t torusCenter = { 0.f,0.f });
+	}
+}
+
+namespace ch {
+
+	/*
+	 * \brief Contains information about a collision between 2 circles.
+	 */
+	struct CirclesCollision {
+		vec_t normal; /**< The collision normal, a vector representing the direction of the collision. */
+		float absoluteDepth; /**< The depth of the collision (always positive). Can be used with the normal to determine the collision correction. */
+	};
+}
+
+namespace ch {
+
+	/*
+	 * \brief Contains information about a collision between an AABB and a circle.
+	 */
+	struct CircleAABBCollision {
+		vec_t normal; /**< The collision normal, a vector representing the direction of the collision. */
+		float absoluteDepth; /**< The depth of the collision (always positive). Can be used with the normal to determine the collision correction. */
+	};
+}
+
+namespace ch {
+	namespace collision {
+
+		/** \return A circle that contains the given AABB. */
+		Circle enclosingCircle(const AABB& aabb);
+
+		/** \return A circle contained in the given AABB. */
+		Circle inscribedCircle(const AABB& aabb);
+
+		/** \return An AABB that contains the given circle. */
+		AABB enclosingAABB(const Circle& circle);
+
+		/** \return The smallest enclosing AABB that contains both points of the segment. */
+		AABB enclosingAABB(const LineSegment& lineSegment);
+
+		/** \return An AABB contained in the given circle. */
+		AABB inscribedAABB(const Circle& circle);
+			
+		/** \returns True if the given point is inside the AABB, false otherwise. */
+		bool aabb_contains(const AABB& aabb, const vec_t& point);
+
+		/** \returns True if the first AABB contains the other AABB, false otherwise. */
+		bool aabb_contains(const AABB& first, const AABB& other);
+
+		/** \returns True if the AABB contains the circle, false otherwise. */
+		bool aabb_contains(const AABB& aabb, const Circle& circle);
+
+		/** \returns True if the circle contains the point, false otherwise. */
+		bool circle_contains(const Circle& circle, const vec_t& point);
+
+		/** \returns True if the first circle contains the other, false otherwise. */
+		bool circle_contains(const Circle& first, const Circle& other);
+
+		/** \returns True if the circle contains the AABB, false otherwise. */
+		bool circle_contains(const Circle& circle, const AABB& aabb);
+
+		/** \returns True if the given AABBs intersect, false otherwise. */
+		bool aabb_intersects(const AABB& a, const AABB& b);
+
+		/** \returns True if the AABB and the circle intersect, false otherwise. */
+		bool aabb_intersects(const AABB& aabb, const Circle& circle);
+
+		/** \returns True if the circles intersect, false otherwise. */
+		bool circle_intersects(const Circle& circle, const Circle& other);
+
+		/** \returns True if the Circle and the AABB intersect, false otherwise. */
+		bool circle_intersects(const Circle& circle, const AABB& aabb);
+
+		/** \returns The distance separating two circles (negative if overlapping) */
+		float circles_distance(const Circle& a, const Circle& b);
+
+		/**
+		 * \brief Checks if the first AABB collides with the other one.
+		 *
+		 * In case of a collision, this function returns an instance of AABBCollision containing the collision normal and the delta (overlap).
+		 * The collision normal is the direction (a unit vector) towards which the other AABB needs to be pushed in order to resolve the collision.
+		 * The collision normal will be set to a null vector (0,0) if there is no collision.
+		 *
+		 * \returns An AABBCollision containing information about the collision.
+		 */
+		AABBCollision aabb_collision_info(const AABB& first, const AABB& other);
+
+		/**
+		 * \brief Checks if the first circle collides with the other one.
+		 *
+		 * In case of a collision, this function returns an instance of CirclesCollision containing the collision normal and the penetration depth.
+		 * The collision normal is the direction (a unit vector) towards which the other circle needs to be pushed in order to resolve the collision.
+		 * The collision normal will be set to a null vector (0,0) if there is no collision.
+		 *
+		 * \returns A CirclesCollision object containing information about the collision.
+		 */
+		CirclesCollision circles_collision_info(const Circle& first, const Circle& other);
+
+		/**
+		 * \brief Checks if an AABB and a circle collide with each other.
+		 *
+		 * In case of a collision, this function returns an instance of CircleAABBCollision containing the collision normal and the penetration depth.
+		 * The collision normal is the direction (a unit vector) towards which the *circle* needs to be pushed in order to resolve the collision.
+		 * The collision normal will be set to a null vector (0,0) if there is no collision.
+		 *
+		 * \returns A CircleAABBCollision object containing information about the collision.
+		 */
+		CircleAABBCollision circle_aabb_collision_info(const AABB& aabb, const Circle& circle);
+
+		/**
+		 * \brief Checks if the given line segments are intersecting.
+		 *
+		 * This methods generates a SegmentsIntersection instance representing the
+		 * state of intersection between the 2 segments.
+		 *
+		 * \note See the SegmentsIntersection class to learn how to interpret the
+		 *  	 result of this method.
+		 * 
+		 * \return A SegmentsIntersection giving information about the intersection.
+		 */
+		SegmentsIntersection line_segments_intersection_info(const LineSegment& first, const LineSegment& other);
+	}
 }
 
 // END CHARBRARY.H
