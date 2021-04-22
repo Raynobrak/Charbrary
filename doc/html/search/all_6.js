@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['maxx',['maxX',['../class_c_b_1_1_line_segment.html#a29f3578cb3af6cacce51d939b4325f0d',1,'CB::LineSegment']]],
-  ['maxy',['maxY',['../class_c_b_1_1_line_segment.html#a105cccda24aedc314552bf4c801e7a60',1,'CB::LineSegment']]],
-  ['minx',['minX',['../class_c_b_1_1_line_segment.html#ace726c18ab16f55af4466fcb21f47f93',1,'CB::LineSegment']]],
-  ['miny',['minY',['../class_c_b_1_1_line_segment.html#af13bcddfff0524ba6af6421926c01d70',1,'CB::LineSegment']]],
-  ['move',['move',['../class_c_b_1_1_a_a_b_b.html#ad2dc098cae6d3de29579a100631c4b31',1,'CB::AABB']]]
+  ['inscribedaabb_39',['inscribedAABB',['../namespacech_1_1collision.html#a492ed6625abe08009250878b86e5cbab',1,'ch::collision']]],
+  ['inscribedcircle_40',['inscribedCircle',['../namespacech_1_1collision.html#ad607a055e635870e1c4b95c5251ca2a0',1,'ch::collision']]],
+  ['intersectiontype_41',['IntersectionType',['../namespacech.html#ac90a317d74dc0234125ac84891753915',1,'ch']]]
 ];

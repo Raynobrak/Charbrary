@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['operator_20_2a_3d',['operator *=',['../class_c_b_1_1_vector.html#a16bca2d13e79a4004253bc694d03af97',1,'CB::Vector']]],
-  ['operator_2b_3d',['operator+=',['../class_c_b_1_1_vector.html#a2c63ad2c97decbfa1ef982c9ce9b4c9f',1,'CB::Vector']]],
-  ['operator_2d_3d',['operator-=',['../class_c_b_1_1_vector.html#a849e7174b064445e0d9fa3d49c8fe2aa',1,'CB::Vector']]],
-  ['operator_2f_3d',['operator/=',['../class_c_b_1_1_vector.html#a0822e17e23748e1973d7bc4b94f53b08',1,'CB::Vector']]],
-  ['operator_3d',['operator=',['../class_c_b_1_1_circle.html#a6f89a79ea092a331b601d295133ac96b',1,'CB::Circle::operator=()'],['../class_c_b_1_1_line_segment.html#a8351d1b172c95e010240598f63bbf718',1,'CB::LineSegment::operator=()'],['../class_c_b_1_1_vector.html#a05fba965c60e68cd2ae9d5eaba61f6f8',1,'CB::Vector::operator=()']]]
+  ['length_145',['length',['../classch_1_1_line_segment.html#a3d36f353cc7677577a0673a8f599f615',1,'ch::LineSegment']]],
+  ['lengthsquared_146',['lengthSquared',['../classch_1_1_line_segment.html#aa83994b12f65c5caee21cf586dea24d1',1,'ch::LineSegment']]],
+  ['line_5fsegments_5fintersection_5finfo_147',['line_segments_intersection_info',['../namespacech_1_1collision.html#aecbc8945f2d9d8aed00d11c0bb2050e1',1,'ch::collision']]],
+  ['linesegment_148',['LineSegment',['../classch_1_1_line_segment.html#a09529ecd229264279b3409096c66a353',1,'ch::LineSegment::LineSegment()'],['../classch_1_1_line_segment.html#a1925e3574083416839da43dd33fdf7cd',1,'ch::LineSegment::LineSegment(const vec_t &amp;start_, const vec_t &amp;end_)']]]
 ];

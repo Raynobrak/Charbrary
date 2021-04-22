@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['elapsedmicroseconds',['elapsedMicroseconds',['../class_c_b_1_1_stopwatch.html#ae21d7d21d38f678aa53437eb003bb9ce',1,'CB::Stopwatch']]],
-  ['elapsedmilliseconds',['elapsedMilliseconds',['../class_c_b_1_1_stopwatch.html#a09a5c1e705246b04fd010edf3b4adf0d',1,'CB::Stopwatch']]],
-  ['elapsednanoseconds',['elapsedNanoseconds',['../class_c_b_1_1_stopwatch.html#ab7136f9bd12fb6f7adcf79645e2e91fe',1,'CB::Stopwatch']]],
-  ['elapsedseconds',['elapsedSeconds',['../class_c_b_1_1_stopwatch.html#ad6d76a8ca6ad347b1f2717a946a0c7c3',1,'CB::Stopwatch']]],
-  ['enclosingaabb',['enclosingAABB',['../class_c_b_1_1_circle.html#a0ab3bd5ea67c56b3d9d1de6ef8cd3856',1,'CB::Circle::enclosingAABB()'],['../class_c_b_1_1_line_segment.html#a7d9be4ab5d460f36efd4def84e13a31d',1,'CB::LineSegment::enclosingAABB()']]],
-  ['end',['end',['../class_c_b_1_1_line_segment.html#a31c0419b15d91426e52e8938392e0ade',1,'CB::LineSegment']]]
+  ['elapsedmicroseconds_30',['elapsedMicroseconds',['../classch_1_1_stopwatch.html#a6c3bd3681665cc9de6c7ef94c2ea5173',1,'ch::Stopwatch']]],
+  ['elapsedmilliseconds_31',['elapsedMilliseconds',['../classch_1_1_stopwatch.html#a8cd81a76311858427334bb9767352d5e',1,'ch::Stopwatch']]],
+  ['elapsednanoseconds_32',['elapsedNanoseconds',['../classch_1_1_stopwatch.html#a6f3235cdaa4216817f8e3f0e5483b771',1,'ch::Stopwatch']]],
+  ['elapsedseconds_33',['elapsedSeconds',['../classch_1_1_stopwatch.html#a577d8abcdf7d3c41a720f9921664c271',1,'ch::Stopwatch']]],
+  ['enclosingaabb_34',['enclosingAABB',['../namespacech_1_1collision.html#aa67314b94b2d1e2007e50ed0c0fff804',1,'ch::collision::enclosingAABB(const Circle &amp;circle)'],['../namespacech_1_1collision.html#af651769032b00da3345b5f76dd539380',1,'ch::collision::enclosingAABB(const LineSegment &amp;lineSegment)']]],
+  ['enclosingcircle_35',['enclosingCircle',['../namespacech_1_1collision.html#add0d802b2a3fbd553b8e98d854c4d101',1,'ch::collision']]],
+  ['end_36',['end',['../classch_1_1_line_segment.html#ade91f69c1b570586b8919104866c3e1d',1,'ch::LineSegment']]]
 ];

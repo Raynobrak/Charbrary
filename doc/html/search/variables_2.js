@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['normal',['normal',['../struct_c_b_1_1_a_a_b_b_collision.html#a1a27b5ba07fb22bf098bb534a9ce3161',1,'CB::AABBCollision']]]
+  ['end_195',['end',['../classch_1_1_line_segment.html#ade91f69c1b570586b8919104866c3e1d',1,'ch::LineSegment']]]
 ];

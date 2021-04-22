@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['point',['point',['../struct_c_b_1_1_segments_intersection.html#af8020944f83834813729e83e9cfba356',1,'CB::SegmentsIntersection']]],
-  ['pos',['pos',['../class_c_b_1_1_a_a_b_b.html#a7dbdefadbcbb9f6a90496378c7c86b70',1,'CB::AABB::pos()'],['../class_c_b_1_1_circle.html#ad23a884f8a12093aced04c54e576e7a8',1,'CB::Circle::pos()']]]
+  ['normal_196',['normal',['../structch_1_1_a_a_b_b_collision.html#af10a77159a526f4c902c265df0938065',1,'ch::AABBCollision::normal()'],['../structch_1_1_circle_a_a_b_b_collision.html#acf4fe4569aab937f5b28e671658b2b3a',1,'ch::CircleAABBCollision::normal()'],['../structch_1_1_circles_collision.html#aec4e40842eab9d16a18c2e6b25f5eddf',1,'ch::CirclesCollision::normal()']]]
 ];

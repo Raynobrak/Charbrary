@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['operator_20_2a_3d',['operator *=',['../class_c_b_1_1_vector.html#a16bca2d13e79a4004253bc694d03af97',1,'CB::Vector']]],
-  ['operator_2b_3d',['operator+=',['../class_c_b_1_1_vector.html#a2c63ad2c97decbfa1ef982c9ce9b4c9f',1,'CB::Vector']]],
-  ['operator_2d_3d',['operator-=',['../class_c_b_1_1_vector.html#a849e7174b064445e0d9fa3d49c8fe2aa',1,'CB::Vector']]],
-  ['operator_2f_3d',['operator/=',['../class_c_b_1_1_vector.html#a0822e17e23748e1973d7bc4b94f53b08',1,'CB::Vector']]],
-  ['operator_3d',['operator=',['../class_c_b_1_1_circle.html#a6f89a79ea092a331b601d295133ac96b',1,'CB::Circle::operator=()'],['../class_c_b_1_1_line_segment.html#a8351d1b172c95e010240598f63bbf718',1,'CB::LineSegment::operator=()'],['../class_c_b_1_1_vector.html#a05fba965c60e68cd2ae9d5eaba61f6f8',1,'CB::Vector::operator=()']]]
+  ['maxx_46',['maxX',['../classch_1_1_line_segment.html#ae58c273f43e727c22e274fe303ada731',1,'ch::LineSegment']]],
+  ['maxy_47',['maxY',['../classch_1_1_line_segment.html#ae126af545c4f9222dc685f4c02dd4af9',1,'ch::LineSegment']]],
+  ['minx_48',['minX',['../classch_1_1_line_segment.html#a2ab9b9bc83ae7d07d2d276c2355951e5',1,'ch::LineSegment']]],
+  ['miny_49',['minY',['../classch_1_1_line_segment.html#a332dd602f245318c55bcd39c33b1abcb',1,'ch::LineSegment']]],
+  ['move_50',['move',['../classch_1_1_a_a_b_b.html#a4b7a3904a94267818588ce86eebbd7e9',1,'ch::AABB']]]
 ];

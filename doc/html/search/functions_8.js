@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['perimeter',['perimeter',['../class_c_b_1_1_a_a_b_b.html#a4fbef9f364fab190d9decbae7282e4c6',1,'CB::AABB']]]
+  ['maxx_149',['maxX',['../classch_1_1_line_segment.html#ae58c273f43e727c22e274fe303ada731',1,'ch::LineSegment']]],
+  ['maxy_150',['maxY',['../classch_1_1_line_segment.html#ae126af545c4f9222dc685f4c02dd4af9',1,'ch::LineSegment']]],
+  ['minx_151',['minX',['../classch_1_1_line_segment.html#a2ab9b9bc83ae7d07d2d276c2355951e5',1,'ch::LineSegment']]],
+  ['miny_152',['minY',['../classch_1_1_line_segment.html#a332dd602f245318c55bcd39c33b1abcb',1,'ch::LineSegment']]],
+  ['move_153',['move',['../classch_1_1_a_a_b_b.html#a4b7a3904a94267818588ce86eebbd7e9',1,'ch::AABB']]]
 ];

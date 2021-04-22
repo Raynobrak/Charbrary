@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../class_c_b_1_1_vector.html#aa28e8a5591dd493bfba0c6c6b2877003',1,'CB::Vector']]]
+  ['x_204',['x',['../classch_1_1_vector.html#a183c079215b105a6cfccfd646b901ab5',1,'ch::Vector']]]
 ];
