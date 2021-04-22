@@ -23,6 +23,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TEST-AABB.cpp" />
     <ClCompile Include="TEST-Circle.cpp" />
+    <ClCompile Include="TEST-collision_functions.cpp" />
     <ClCompile Include="TEST-LineSegment.cpp" />
     <ClCompile Include="TEST-Vector.cpp" />
     <ClCompile Include="TEST-vector_maths_functions.cpp" />

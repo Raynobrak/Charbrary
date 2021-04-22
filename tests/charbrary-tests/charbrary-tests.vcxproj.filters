@@ -30,9 +30,10 @@
     <ClCompile Include="TEST-vector_maths_functions.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="TEST-collision_functions.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\single-include\charbrary.h">

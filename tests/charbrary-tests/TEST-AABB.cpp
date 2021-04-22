@@ -93,41 +93,6 @@ TEST_CASE("compute the position of all 4 corners of aabb", "[AABB]") {
 	REQUIRE(corners[3] == aabb.corner(ch::Corner::BottomRight));
 }
 
-TEST_CASE("getting collision information when there is no collision between 2 aabbs", "[AABB]") {
-	ch::AABB current(0.f, 0.f, 10.f, 10.f);
-	ch::AABB other(50.f, 50.f, 30.f, 30.f);
-
-	REQUIRE(current.detectCollision(other).normal == ch::NULL_VEC);
-}
-
-TEST_CASE("aabb collides with the left side of the calling aabb", "[AABB]") {
-	ch::AABB current(0.f, 0.f, 10.f, 10.f);
-	ch::AABB other(-1.f, 1.f, 3.f, 3.f);
-
-	REQUIRE(current.detectCollision(other).normal == ch::LEFT_VEC);
-}
-
-TEST_CASE("aabb collides with the right side of the calling aabb", "[AABB]") {
-	ch::AABB current(0.f, 0.f, 10.f, 10.f);
-	ch::AABB other(8.f, 5.f, 40.f, 40.f);
-
-	REQUIRE(current.detectCollision(other).normal == ch::RIGHT_VEC);
-}
-
-TEST_CASE("aabb collides with the top side of the calling aabb", "[AABB]") {
-	ch::AABB current(10.f, 10.f, 4.f, 4.f);
-	ch::AABB other(9.f, 9.f, 4.f, 2.f);
-
-	REQUIRE(current.detectCollision(other).normal == ch::UP_VEC);
-}
-
-TEST_CASE("aabb collides with the bottom side of the calling aabb", "[AABB]") {
-	ch::AABB current(0.f, 0.f, 10.f, 10.f);
-	ch::AABB other(5.f, 9.f, 10.f, 10.f);
-
-	REQUIRE(current.detectCollision(other).normal == ch::DOWN_VEC);
-}
-
 TEST_CASE("scale an aabb relative to its center by a factor smaller than 1", "[AABB]") {
 	ch::AABB aabb(3.f, 5.f, 10.f, 20.f);
 	ch::vec_t centerPosBefore = aabb.center();
@@ -169,70 +134,6 @@ TEST_CASE("compute the length of an aabb's diagonals", "[AABB]") {
 	float expected = 5.f;
 
 	REQUIRE(aabb.diagonalLength() == expected);
-}
-
-TEST_CASE("aabb contains a point", "[AABB]") {
-	ch::AABB aabb(6.f, 7.f, 10.f, 20.f);
-	ch::vec_t point(6.f, 26.f);
-
-	REQUIRE(aabb.contains(point));
-}
-
-TEST_CASE("aabb doesn't contain a point", "[AABB]") {
-	ch::AABB aabb(6.f, 7.f, 10.f, 20.f);
-	ch::vec_t point(5.f, 14.f);
-
-	REQUIRE_FALSE(aabb.contains(point));}
-
-TEST_CASE("aabbs intersect", "[AABB]") {
-	ch::AABB first(6.f, 7.f, 10.f, 20.f);
-	ch::AABB second(18.f, 10.f, 30.f, 40.f);
-
-	REQUIRE_FALSE(first.intersects(second));
-	REQUIRE_FALSE(second.intersects(first));
-}
-
-TEST_CASE("aabbs don't intersect", "[AABB]") {
-	ch::AABB first(6.f, 4.f, 10.f, 5.f);
-	ch::AABB second(7.f, 5.f, 5.f, 2.f);
-
-	REQUIRE(first.intersects(second));
-	REQUIRE(second.intersects(first));
-}
-
-TEST_CASE("aabb intersects itself", "[AABB]") {
-	ch::AABB aabb(6.f, 4.f, 10.f, 5.f);
-
-	REQUIRE(aabb.intersects(aabb));
-}
-
-TEST_CASE("crossing aabbs intersect", "[AABB]") {
-	ch::AABB first(6.f, 4.f, 10.f, 30.f);
-	ch::AABB second(1.f, 10.f, 30.f, 10.f);
-
-	REQUIRE(first.intersects(second));
-	REQUIRE(second.intersects(first));
-}
-
-TEST_CASE("aabb does not strictly contain another aabb", "[AABB]") {
-	ch::AABB first(6.f, 4.f, 10.f, 30.f);
-	ch::AABB second(5.f, 6.f, 4.f, 3.f);
-
-	REQUIRE_FALSE(first.strictlyContains(second));
-}
-
-TEST_CASE("aabb strictly contains another aabb but the opposite is not true", "[AABB]") {
-	ch::AABB container(2.f, 3.f, 50.f, 20.f);
-	ch::AABB contained(10.f, 10.f, 5.f, 5.f);
-
-	REQUIRE(container.strictlyContains(contained));
-	REQUIRE_FALSE(contained.strictlyContains(container));
-}
-
-TEST_CASE("aabb strictly contains itself", "[AABB]") {
-	ch::AABB aabb(6.f, 4.f, 10.f, 30.f);
-	
-	REQUIRE(aabb.strictlyContains(aabb));
 }
 
 TEST_CASE("aabb assignment operator", "[AABB]") {

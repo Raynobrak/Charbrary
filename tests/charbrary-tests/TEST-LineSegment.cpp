@@ -86,7 +86,7 @@ TEST_CASE("2 line segments that have overlapping enclosing aabbs but don't inter
 	ch::LineSegment second({ -1.f,4.f }, { -3.f,3.f });
 	auto intersection = first.checkForIntersection(second);
 
-	REQUIRE(first.enclosingAABB().intersects(second.enclosingAABB()));
+	REQUIRE(ch::collision::aabb_intersects(first.enclosingAABB(), second.enclosingAABB()));
 	REQUIRE(intersection.type == ch::IntersectionType::None);
 }
 
