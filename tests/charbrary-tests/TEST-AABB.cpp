@@ -157,5 +157,3 @@ TEST_CASE("aabb inequality operator", "[AABB]") {
 
 	REQUIRE_FALSE(first == second);
 }
-
-
