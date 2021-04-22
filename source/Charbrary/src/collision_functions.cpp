@@ -15,7 +15,8 @@ namespace ch {
 		}
 
 		AABB inscribedAABB(const Circle& circle) {
-			auto halfSize = vec_from_polar_coordinates(-45.f, circle.radius);
+			float halfSide = sqrtf(circle.radius * circle.radius / 2.f);
+			auto halfSize = vec_t(halfSide, halfSide);
 			return AABB(circle.pos - halfSize, halfSize * 2.f);
 		}
 
@@ -157,7 +158,7 @@ namespace ch {
 			if (!circle_intersects(first, other))
 				return CirclesCollision{ NULL_VEC, 0.f };
 
-			return CirclesCollision{ vec_normalize(first.pos - other.pos), std::abs(circles_distance(first, other)) };
+			return CirclesCollision{ vec_normalize(other.pos - first.pos), std::abs(circles_distance(first, other)) };
 		}
 
 		CircleAABBCollision circle_aabb_collision_info(const AABB& aabb, const Circle& circle) {
