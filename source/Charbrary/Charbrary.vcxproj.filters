@@ -34,6 +34,9 @@
     <ClCompile Include="src\collision_functions.cpp">
       <Filter>source\collision</Filter>
     </ClCompile>
+    <ClCompile Include="src\AABBCollision.cpp">
+      <Filter>source\collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Vector.h">

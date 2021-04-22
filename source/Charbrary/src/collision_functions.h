@@ -5,6 +5,7 @@
 #include "AABBCollision.h"
 #include "CirclesCollision.h"
 #include "CircleAABBCollision.h"
+#include "LineSegment.h"
 
 namespace ch {
 	namespace collision {
@@ -17,6 +18,9 @@ namespace ch {
 
 		/** \return An AABB that contains the given circle. */
 		AABB enclosingAABB(const Circle& circle);
+
+		/** \return The smallest enclosing AABB that contains both points of the segment. */
+		AABB enclosingAABB(const LineSegment& lineSegment);
 
 		/** \return An AABB contained in the given circle. */
 		AABB inscribedAABB(const Circle& circle);
@@ -87,8 +91,18 @@ namespace ch {
 		 */
 		CircleAABBCollision circle_aabb_collision_info(const AABB& aabb, const Circle& circle);
 
-		void ensureContainment(AABB& object, const AABB& container);
-		void ensureContainment(Circle& object, const AABB& container);
+		/**
+		 * \brief Checks if the given line segments are intersecting.
+		 *
+		 * This methods generates a SegmentsIntersection instance representing the
+		 * state of intersection between the 2 segments.
+		 *
+		 * \note See the SegmentsIntersection class to learn how to interpret the
+		 *  	 result of this method.
+		 * 
+		 * \return A SegmentsIntersection giving information about the intersection.
+		 */
+		SegmentsIntersection line_segments_intersection_info(const LineSegment& first, const LineSegment& other);
 	}
 }
 

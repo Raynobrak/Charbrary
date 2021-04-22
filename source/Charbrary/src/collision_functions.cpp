@@ -14,6 +14,10 @@ namespace ch {
 			return AABB(circle.pos.x - circle.radius, circle.pos.y - circle.radius, circle.radius * 2, circle.radius * 2);
 		}
 
+		AABB enclosingAABB(const LineSegment& lineSegment) {
+			return AABB({ lineSegment.minX(), lineSegment.minY() }, lineSegment.absoluteSize());
+		}
+
 		AABB inscribedAABB(const Circle& circle) {
 			float halfSide = sqrtf(circle.radius * circle.radius / 2.f);
 			auto halfSize = vec_t(halfSide, halfSide);
@@ -185,6 +189,100 @@ namespace ch {
 			}
 
 			return NO_COLLISION;
+		}
+		SegmentsIntersection line_segments_intersection_info(const LineSegment& first, const LineSegment& other)
+		{
+			if (collision::aabb_intersects(enclosingAABB(first), enclosingAABB(other))) {
+				float slopeCurrent = first.slope();
+				float slopeOther = other.slope();
+				float YInterceptCurrent = LineSegment::YIntercept(first.start, slopeCurrent);
+				float YInterceptOther = LineSegment::YIntercept(other.start, slopeOther);
+
+				if (slopeCurrent == slopeOther) {
+					if (YInterceptCurrent == YInterceptOther) {
+
+						float minx = first.minX() < other.minX() ? first.minX() : other.minX();
+						float maxx = first.maxX() > other.maxX() ? first.maxX() : other.maxX();
+						float miny = first.minY() < other.minY() ? first.minY() : other.minY();
+						float maxy = first.maxY() > other.maxY() ? first.maxY() : other.maxY();
+
+						const vec_t* p1 = nullptr;
+						const vec_t* p2 = nullptr;
+
+						if (minx == maxx) {
+							if (first.start.y == miny || first.start.y == maxy) {
+								p1 = &first.end;
+							}
+							else {
+								p1 = &first.start;
+							}
+
+							if (other.start.y == miny || other.start.y == maxy) {
+								p2 = &other.end;
+							}
+							else {
+								p2 = &other.start;
+							}
+						}
+						else if (miny == maxy) {
+							if (first.start.x == minx || first.start.x == maxx) {
+								p1 = &first.end;
+							}
+							else {
+								p1 = &first.start;
+							}
+
+							if (other.start.x == minx || other.start.x == maxx) {
+								p2 = &other.end;
+							}
+							else {
+								p2 = &other.start;
+							}
+						}
+						else {
+							if (first.start.x == minx || first.start.x == maxx || first.start.y == miny || first.start.y == maxy) {
+								p1 = &first.end;
+							}
+							else {
+								p1 = &first.start;
+							}
+
+							if (other.start.x == minx || other.start.x == maxx || other.start.y == miny || other.start.y == maxy) {
+								p2 = &other.end;
+							}
+							else {
+								p2 = &other.start;
+							}
+						}
+
+						return SegmentsIntersection(IntersectionType::Overlapping, std::pair<vec_t, vec_t>{ *p1, *p2 });
+					}
+					else {
+						return SegmentsIntersection(IntersectionType::None);
+					}
+				}
+				else {
+					if (YInterceptCurrent == YInterceptOther) {
+
+						return SegmentsIntersection(IntersectionType::Crossing, vec_t(0, YInterceptCurrent));
+					}
+					else {
+						float commonX = (YInterceptOther - YInterceptCurrent) / (slopeCurrent - slopeOther);
+
+						if (commonX > first.minX() && commonX < first.maxX() && commonX > other.minX() && commonX < other.maxX()) {
+							float commonY = slopeCurrent * commonX + YInterceptCurrent;
+
+							return SegmentsIntersection(IntersectionType::Crossing, vec_t(commonX, commonY));
+						}
+						else {
+							return SegmentsIntersection(IntersectionType::None);
+						}
+					}
+				}
+			}
+			else {
+				return SegmentsIntersection(IntersectionType::None);
+			}
 		}
 	}
 }

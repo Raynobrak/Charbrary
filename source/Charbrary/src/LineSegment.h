@@ -94,28 +94,6 @@ namespace ch {
 		float maxY() const;
 
 		/**
-		 * \brief Computes the enclosing AABB.
-		 * 
-		 * Finds the smallest possible AABB that contains both points of the segment.
-		 * 
-		 * \return The enclosing AABB.
-		 */
-		AABB enclosingAABB() const;
-
-		/**
-		 * \brief Checks if the current segment and other are intersecting.
-		 * 
-		 * This methods generates a SegmentsIntersection instance representing the
-		 * state of intersection between the 2 segments. 
-		 * 
-		 * \note See the SegmentsIntersection class to learn how to interpret the
-		 *  	 result of this method.
-		 * \param other The segment to check for intersection with.
-		 * \return A SegmentsIntersection giving information about the intersection.
-		 */
-		SegmentsIntersection checkForIntersection(const LineSegment& other) const;
-
-		/**
 		 * \brief Computes the y-intercept value of a right (infinite line).
 		 * 
 		 * The Y-intercept is the Y component of the point at which the given right

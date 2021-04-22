@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\AABB.cpp" />
+    <ClCompile Include="src\AABBCollision.cpp" />
     <ClCompile Include="src\Circle.cpp" />
     <ClCompile Include="src\collision_functions.cpp" />
     <ClCompile Include="src\Corner.cpp" />

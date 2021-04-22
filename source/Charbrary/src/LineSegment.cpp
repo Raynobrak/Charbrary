@@ -34,100 +34,6 @@ namespace ch {
 		}
 	}
 
-	SegmentsIntersection LineSegment::checkForIntersection(const LineSegment& other) const {
-		if (collision::aabb_intersects(enclosingAABB(), other.enclosingAABB())) {
-			float slopeCurrent = slope();
-			float slopeOther = other.slope();
-			float YInterceptCurrent = YIntercept(start, slopeCurrent);
-			float YInterceptOther = YIntercept(other.start, slopeOther);
-
-			if (slopeCurrent == slopeOther) {
-				if (YInterceptCurrent == YInterceptOther) {
-
-					float minx = minX() < other.minX() ? minX() : other.minX();
-					float maxx = maxX() > other.maxX() ? maxX() : other.maxX();
-					float miny = minY() < other.minY() ? minY() : other.minY();
-					float maxy = maxY() > other.maxY() ? maxY() : other.maxY();
-		
-					const vec_t* p1 = nullptr;
-					const vec_t* p2 = nullptr;
-
-					if (minx == maxx) {
-						if (start.y == miny || start.y == maxy) {
-							p1 = &end;
-						}
-						else {
-							p1 = &start;
-						}
-
-						if (other.start.y == miny || other.start.y == maxy) {
-							p2 = &other.end;
-						}
-						else {
-							p2 = &other.start;
-						}
-					}
-					else if (miny == maxy) {
-						if (start.x == minx || start.x == maxx) {
-							p1 = &end;
-						}
-						else {
-							p1 = &start;
-						}
-
-						if (other.start.x == minx || other.start.x == maxx) {
-							p2 = &other.end;
-						}
-						else {
-							p2 = &other.start;
-						}
-					}
-					else {
-						if (start.x == minx || start.x == maxx || start.y == miny || start.y == maxy) {
-							p1 = &end;
-						}
-						else {
-							p1 = &start;
-						}
-
-						if (other.start.x == minx || other.start.x == maxx || other.start.y == miny || other.start.y == maxy) {
-							p2 = &other.end;
-						}
-						else {
-							p2 = &other.start;
-						}
-					}
-
-					return SegmentsIntersection(IntersectionType::Overlapping, std::pair<vec_t, vec_t>{ *p1,*p2 });
-				}
-				else {
-					return SegmentsIntersection(IntersectionType::None);
-				}
-			}
-			else {
-				if (YInterceptCurrent == YInterceptOther) {
-
-					return SegmentsIntersection(IntersectionType::Crossing, vec_t(0, YInterceptCurrent));
-				}
-				else {
-					float commonX = (YInterceptOther - YInterceptCurrent) / (slopeCurrent - slopeOther);
-
-					if (commonX > minX() && commonX < maxX() && commonX > other.minX() && commonX < other.maxX()) {
-						float commonY = slopeCurrent * commonX + YInterceptCurrent;
-
-						return SegmentsIntersection(IntersectionType::Crossing, vec_t(commonX, commonY));
-					}
-					else {
-						return SegmentsIntersection(IntersectionType::None);
-					}
-				}
-			}
-		}
-		else {
-			return SegmentsIntersection(IntersectionType::None);
-		}
-	}
-
 	float LineSegment::minX() const {
 		return start.x < end.x ? start.x : end.x;
 	}
@@ -142,10 +48,6 @@ namespace ch {
 
 	float LineSegment::maxY() const {
 		return start.y > end.y ? start.y : end.y;
-	}
-
-	AABB LineSegment::enclosingAABB() const {
-		return AABB({ minX(), minY() }, absoluteSize());
 	}
 
 	float LineSegment::YIntercept(const vec_t& anyPoint, float slope) {
