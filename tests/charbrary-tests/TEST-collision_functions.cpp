@@ -26,7 +26,7 @@ TEST_CASE("compute the smallest enclosing aabb of a circle", "[Collision functio
 	REQUIRE(ch::collision::enclosingAABB(circle) == expected);
 }
 
-TEST_CASE("compute the smallest enclosing aabb of a line segment", "[LineSegment]") {
+TEST_CASE("compute the smallest enclosing aabb of a line segment", "[Collision functions]") {
 	ch::LineSegment segment({ 5.f,14.f }, { 13.f,7.f });
 	REQUIRE(ch::collision::enclosingAABB(segment) == ch::AABB(5.f, 7.f, 8.f, 7.f));
 }
@@ -230,7 +230,7 @@ TEST_CASE("compute the distance to another circle when they overlap (negative di
 	REQUIRE(ch::collision::circles_distance(circle, other) == -3.f);
 }
 
-TEST_CASE("getting collision information when there is no collision between 2 aabbs", "[AABB]") {
+TEST_CASE("getting collision information when there is no collision between 2 aabbs", "[Collision functions]") {
 	ch::AABB current(0.f, 0.f, 10.f, 10.f);
 	ch::AABB other(50.f, 50.f, 30.f, 30.f);
 
@@ -434,7 +434,7 @@ TEST_CASE("circle collides bottom left corner of AABB", "[Collision functions]")
 	REQUIRE(collision.absoluteDepth == Approx(expectedCollision.absoluteDepth));
 }
 
-TEST_CASE("2 line segments don't intersect", "[LineSegment]") {
+TEST_CASE("2 line segments don't intersect", "[Collision functions]") {
 	ch::LineSegment first({ -70.f,4.f }, { -1.f,10.f });
 	ch::LineSegment second({ -1.f,4.f }, { -4.f,1.f });
 	auto intersection = ch::collision::line_segments_intersection_info(first, second);
@@ -442,7 +442,7 @@ TEST_CASE("2 line segments don't intersect", "[LineSegment]") {
 	REQUIRE(intersection.type == ch::IntersectionType::None);
 }
 
-TEST_CASE("2 line segments cross at a point", "[LineSegment]") {
+TEST_CASE("2 line segments cross at a point", "[Collision functions]") {
 	ch::LineSegment first({ -7.f,4.f }, { -1.f,1.f });
 	ch::LineSegment second({ -1.f,4.f }, { -4.f,1.f });
 	auto intersection = ch::collision::line_segments_intersection_info(first, second);
@@ -451,7 +451,7 @@ TEST_CASE("2 line segments cross at a point", "[LineSegment]") {
 	REQUIRE(intersection.point == ch::vec_t(-3.f, 2.f));
 }
 
-TEST_CASE("2 line segments that have overlapping enclosing aabbs but don't intersect", "[LineSegment]") {
+TEST_CASE("2 line segments that have overlapping enclosing aabbs but don't intersect", "[Collision functions]") {
 	ch::LineSegment first({ -7.f,4.f }, { -1.f,1.f });
 	ch::LineSegment second({ -1.f,4.f }, { -3.f,3.f });
 	auto intersection = ch::collision::line_segments_intersection_info(first, second);
@@ -460,7 +460,7 @@ TEST_CASE("2 line segments that have overlapping enclosing aabbs but don't inter
 	REQUIRE(intersection.type == ch::IntersectionType::None);
 }
 
-TEST_CASE("2 line segments intersect at a point on the y-axis", "[LineSegment]") {
+TEST_CASE("2 line segments intersect at a point on the y-axis", "[Collision functions]") {
 	ch::LineSegment first({ 9.f,-5.f }, { -3.f,3.f });
 	ch::LineSegment second({ -3.f,-1.f }, { 6.f,5.f });
 	auto intersection = ch::collision::line_segments_intersection_info(first, second);
@@ -469,7 +469,7 @@ TEST_CASE("2 line segments intersect at a point on the y-axis", "[LineSegment]")
 	REQUIRE(intersection.point == ch::vec_t(0.f, 1.f));
 }
 
-TEST_CASE("2 parallel line segments that don't intersect", "[LineSegment]") {
+TEST_CASE("2 parallel line segments that don't intersect", "[Collision functions]") {
 	ch::LineSegment first({ -2.f,4.f }, { -5.f,1.f });
 	ch::LineSegment second({ -1.f,4.f }, { -4.f,1.f });
 	auto intersection = ch::collision::line_segments_intersection_info(first, second);
@@ -477,7 +477,7 @@ TEST_CASE("2 parallel line segments that don't intersect", "[LineSegment]") {
 	REQUIRE(intersection.type == ch::IntersectionType::None);
 }
 
-TEST_CASE("2 vertically parallel line segments that don't intersect", "[LineSegment]") {
+TEST_CASE("2 vertically parallel line segments that don't intersect", "[Collision functions]") {
 	ch::LineSegment first({ -3.f,3.f }, { -3.f,2.f });
 	ch::LineSegment second({ -2.f,4.f }, { -2.f,-1.f });
 	auto intersection = ch::collision::line_segments_intersection_info(first, second);
@@ -485,7 +485,7 @@ TEST_CASE("2 vertically parallel line segments that don't intersect", "[LineSegm
 	REQUIRE(intersection.type == ch::IntersectionType::None);
 }
 
-TEST_CASE("2 line segments overlapping", "[LineSegment]") {
+TEST_CASE("2 line segments overlapping", "[Collision functions]") {
 	ch::LineSegment first({ -11.f,3.f }, { -5.f,0.f });
 	ch::LineSegment second({ -7.f,1.f }, { -3.f,-1.f });
 	auto intersection = ch::collision::line_segments_intersection_info(first, second);
@@ -496,7 +496,7 @@ TEST_CASE("2 line segments overlapping", "[LineSegment]") {
 	REQUIRE(ch::LineSegment({ -7.f,1.f }, { -5.f, 0.f }) == expected);
 }
 
-TEST_CASE("2 vertically overlapping line segments", "[LineSegment]") {
+TEST_CASE("2 vertically overlapping line segments", "[Collision functions]") {
 	ch::LineSegment first({ -5.f,-1.f }, { -5.f,2.f });
 	ch::LineSegment second({ -5.f,0.f }, { -5.f,-4.f });
 	auto intersection = ch::collision::line_segments_intersection_info(first, second);
@@ -507,7 +507,7 @@ TEST_CASE("2 vertically overlapping line segments", "[LineSegment]") {
 	REQUIRE(ch::LineSegment({ -5.f,-1.f }, { -5.f, 0.f }) == expected);
 }
 
-TEST_CASE("2 horizontally overlapping line segments", "[LineSegment]") {
+TEST_CASE("2 horizontally overlapping line segments", "[Collision functions]") {
 	ch::LineSegment first({ -1.f,-4.f }, { 3.f,-4.f });
 	ch::LineSegment second({ 0.f,-4.f }, { 5.f,-4.f });
 	auto intersection = ch::collision::line_segments_intersection_info(first, second);
