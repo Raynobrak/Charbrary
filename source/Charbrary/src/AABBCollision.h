@@ -5,7 +5,7 @@
 namespace ch {
 
 	/*
-	 * \brief Contains information about the collision of 2 AABBs.
+	 * \brief Contains information about a collision between 2 AABBs.
 	 */
 	struct AABBCollision {
 		vec_t normal; /**< The collision normal, a vector representing the direction of the collision. */
